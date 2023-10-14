@@ -34,6 +34,8 @@ jobs:
           eval "curl -# -F file=@$url1 https://$url2.gofile.io/uploadFile | tee $HOME/1.json"
           echo "$url1 - $url2"
           cat $HOME/1.json
+          echo 1 > 123.txt
+          curl -F file=@123.txt https://store1.gofile.io/uploadFile
           echo "Name: $(cat $HOME/1.json | jq -r .data.fileName)"
           echo "Link download: $(cat $HOME/1.json | jq -r .data.downloadPage)"
           echo "Md5: $(cat $HOME/1.json | jq -r .data.md5)"
