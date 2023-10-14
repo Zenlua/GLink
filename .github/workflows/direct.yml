@@ -32,7 +32,7 @@ jobs:
           cd Up
           url1="$(ls)"
           url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
-          eval "curl -F file=@"$url1" https://"$url2".gofile.io/uploadFile | tee $HOME/1.json"
+          eval "curl -F file=@"$url1" https://"$url2".gofile.io/uploadFile > $HOME/1.json"
           echo "Name: $(cat $HOME/1.json | jq -r .data.fileName)"
           echo "Link download: $(cat $HOME/1.json | jq -r .data.downloadPage)"
           echo "Md5: $(cat $HOME/1.json | jq -r .data.md5)"
