@@ -1,14 +1,23 @@
-name: Mega
+name: Mega-Link
 on:
   workflow_dispatch:
+    inputs:
+      FEATURE:
+        description: 'Import link mega: https://mega.nz/xxx'
+        required: false
+        default: ''
+permissions: write-all
 jobs:
   build:
+    name: 'See-progress'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Install Megatools
         run: sudo apt-get install megatools
       - name: Downloading
+        env:
+          FEATURE: ${{ inputs.FEATURE }}
         run: |
-          echo Add other actions to build,
+          echo $FEATURE
 
