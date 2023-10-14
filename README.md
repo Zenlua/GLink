@@ -21,7 +21,7 @@ Donate:
 
 User manual:
 
-- [Actions](./actions)
+- [Actions](https://github.com/Zelooooo/Get-Link/actions)
 
 See photo instructions
 
