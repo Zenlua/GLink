@@ -6,6 +6,16 @@ on:
         description: 'Import link: https://xxx.com/xxx'
         required: true
         default: ''
+      SEVER1:
+        description: 'Upload sever 1'
+        required: false
+        default: true
+        type: boolean
+        SEVER2:
+        description: 'Upload sever 2'
+        required: false
+        default: false
+        type: boolean
 permissions: write-all
 jobs:
   build:
@@ -26,6 +36,7 @@ jobs:
           User="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
           curl -# -L -N -H "$User" --connect-timeout 20 -O "$FEATURE"
       - name: Upload 1
+        if: ${{ inputs.SEVER1 }} == 'true'
         run: |
           # kakathic
           HOME="$GITHUB_WORKSPACE"
@@ -38,6 +49,7 @@ jobs:
           echo "Link download: $(cat $HOME/1.json | jq -r .data.downloadPage)"
           echo "Md5: $(cat $HOME/1.json | jq -r .data.md5)"
       - name: Upload 2
+        if: ${{ inputs.SEVER2 }} == 'true'
         uses: actions/upload-artifact@v3
         with:
           name: Link-Speed
