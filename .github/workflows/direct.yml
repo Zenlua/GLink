@@ -11,7 +11,7 @@ on:
         required: false
         default: true
         type: boolean
-        SEVER2:
+      SEVER2:
         description: 'Upload sever 2'
         required: false
         default: false
