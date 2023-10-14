@@ -21,8 +21,6 @@ Donate:
 
 See photo instructions
 
-- [Actions](https://github.com/Zelooooo/Get-Link/actions)
-
 <img src="./.github/img.jpg" height="auto" width="100%" />
 
 1. Select actions
