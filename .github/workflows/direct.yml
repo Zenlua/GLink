@@ -33,10 +33,11 @@ jobs:
           url1="$(ls)"
           url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
           eval "curl -F file=@"$url1" https://"$url2".gofile.io/uploadFile > $HOME/1.json"
+          echo
           echo "Name: $(cat $HOME/1.json | jq -r .data.fileName)"
           echo "Link download: $(cat $HOME/1.json | jq -r .data.downloadPage)"
           echo "Md5: $(cat $HOME/1.json | jq -r .data.md5)"
-          echo "Link direct: https://$url2.gofile.io/download/$(cat $HOME/1.json | jq -r .data.fileId)/$(cat $HOME/1.json | jq -r .data.fileName)"
+          echo "Link direct: $url2.gofile.io/download/$(cat $HOME/1.json | jq -r .data.fileId)/$(cat $HOME/1.json | jq -r .data.fileName)"
       - name: Upload 2
         uses: actions/upload-artifact@v3
         with:
