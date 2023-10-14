@@ -19,11 +19,9 @@ Donate:
   
 - [Patreon](https://www.patreon.com/Kakathic)
 
-User manual:
+See photo instructions
 
 - [Actions](https://github.com/Zelooooo/Get-Link/actions)
-
-See photo instructions
 
 <img src="./.github/img.jpg" height="auto" width="100%" />
 
