@@ -28,6 +28,6 @@ Press to show the download link
 
 <img src="./.github/img3.jpg" height="auto" width="100%" />
 
-Click on view process to display server 1 link
+Click on view "See-progress" to display server 1 link
 
 <img src="./.github/img4.jpg" height="auto" width="100%" />
