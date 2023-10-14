@@ -36,7 +36,7 @@ jobs:
           mkdir -p Up
           cd Up
           User="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
-          curl -# -L -N -H "$User" --connect-timeout 20 -O "$FEATURE"
+          curl -L -N -H "$User" --connect-timeout 20 -O "$FEATURE"
       - name: Upload 1
         if: inputs.SEVER1 == true
         run: |
