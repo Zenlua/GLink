@@ -4,7 +4,7 @@ on:
     inputs:
       FEATURE:
         description: 'Import link mega: https://mega.nz/xxx'
-        required: false
+        required: true
         default: ''
 permissions: write-all
 jobs:
@@ -19,5 +19,16 @@ jobs:
         env:
           FEATURE: ${{ inputs.FEATURE }}
         run: |
-          echo $FEATURE
-
+          # kakathic
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /usr/local/share/boost
+          mkdir -p Up
+          cd Up
+          megadl "$FEATURE"
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Link-Speed
+          path: Up/*
+          retention-days: 2
