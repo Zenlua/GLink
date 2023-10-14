@@ -7,7 +7,11 @@ Currently supports the following get links
 - Mega.nz
 - Direct
 
-Note: All files will be zip compressed, When downloading, unzip the zip to see the original file
+Note: 
+
+- All files will be zip compressed, When downloading, unzip the zip to see the original file
+
+- You can see at server 1 link, it will download the file directly without zip compression.
 
 User manual: [Actions](./actions)
 
@@ -29,5 +33,7 @@ Press to show the download link
 <img src="./.github/img3.jpg" height="auto" width="100%" />
 
 Click on view "See-progress" to display server 1 link
+
+- Link is not zip compressed
 
 <img src="./.github/img4.jpg" height="auto" width="100%" />
