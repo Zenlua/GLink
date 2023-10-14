@@ -1,0 +1,34 @@
+name: Direct-Link
+on:
+  workflow_dispatch:
+    inputs:
+      FEATURE:
+        description: 'Import link: https://xxx.com/xxx'
+        required: true
+        default: ''
+permissions: write-all
+jobs:
+  build:
+    name: 'See-progress'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download
+        env:
+          FEATURE: ${{ inputs.FEATURE }}
+        run: |
+          # kakathic
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /usr/local/share/boost
+          mkdir -p Up
+          cd Up
+          User="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
+          curl -# -L -N -H "$User" --connect-timeout 20 -O "$FEATURE"
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: Link-Speed
+          path: Up/*
+          retention-days: 2
+          
