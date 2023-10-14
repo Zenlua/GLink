@@ -13,7 +13,15 @@ Note:
 
 - You can see at server 1 link, it will download the file directly without zip compression.
 
-User manual: [Actions](./actions)
+Donate:
+
+- [Paypal](https://www.paypal.com/paypalme/kakathic)
+  
+- [Patreon](https://www.patreon.com/Kakathic)
+
+User manual:
+
+- [Actions](./actions)
 
 See photo instructions
 
