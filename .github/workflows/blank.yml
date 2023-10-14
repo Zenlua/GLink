@@ -6,9 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Run a one-line script
+      - name: Install Megatools
         run: sudo apt-get install megatools
-      - name: Run a multi-line script
+      - name: Downloading
         run: |
           echo Add other actions to build,
 
