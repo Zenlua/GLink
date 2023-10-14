@@ -26,7 +26,16 @@ jobs:
           mkdir -p Up
           cd Up
           megadl "$FEATURE"
-      - name: Upload
+      - name: Upload 1
+        run: |
+          # kakathic
+          HOME="$GITHUB_WORKSPACE"
+          curl -s -F file=@$(ls Up) "https://$(curl -s https://api.gofile.io/getServer | jq -r .data.server).gofile.io/uploadFile" | tee $HOME/1.json
+          echo "Name: $(cat $HOME/1.json | jq -r .data.fileName)"
+          echo "Link download: $(cat $HOME/1.json | jq -r .data.downloadPage)"
+          echo "Md5: $(cat $HOME/1.json | jq -r .data.md5)"
+          echo "Link direct: https://store6.gofile.io/download/$(cat $HOME/1.json | jq -r .data.fileId)/$(cat $HOME/1.json | jq -r .data.fileName)"
+      - name: Upload 2
         uses: actions/upload-artifact@v3
         with:
           name: Link-Speed
