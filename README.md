@@ -1,2 +1,8 @@
-# GetLink
-Get files from other websites, and store them on github
+# Get-Link
+
+All links will be stored for 2 days
+
+Currently supports the following get links
+
+- Mega.nz
+- Direct
