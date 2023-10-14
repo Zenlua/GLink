@@ -29,9 +29,11 @@ jobs:
         run: |
           # kakathic
           HOME="$GITHUB_WORKSPACE"
+          cd Up
+          ls
           url1="$(ls Up)"
           url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
-          eval "curl -# -F file=@$url1 https://$url2.gofile.io/uploadFile | tee $HOME/1.json"
+          eval "curl -# -F file=@"$url1" https://"$url2".gofile.io/uploadFile | tee $HOME/1.json"
           echo "$url1 - $url2"
           cat $HOME/1.json
           echo 1 > 123.txt
