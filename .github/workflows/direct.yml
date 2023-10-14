@@ -37,7 +37,6 @@ jobs:
           echo "Name: $(cat $HOME/1.json | jq -r .data.fileName)"
           echo "Link download: $(cat $HOME/1.json | jq -r .data.downloadPage)"
           echo "Md5: $(cat $HOME/1.json | jq -r .data.md5)"
-          echo "Link direct: $url2.gofile.io/download/$(cat $HOME/1.json | jq -r .data.fileId)/$(cat $HOME/1.json | jq -r .data.fileName)"
       - name: Upload 2
         uses: actions/upload-artifact@v3
         with:
