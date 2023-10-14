@@ -1,4 +1,4 @@
-# Get-Link
+# Get Link
 
 All links will be stored for 2 days
 
@@ -24,3 +24,10 @@ Wait until green color appears
 
 <img src="./.github/img2.jpg" height="auto" width="100%" />
 
+Press to show the download link 
+
+<img src="./.github/img3.jpg" height="auto" width="100%" />
+
+Click on view process to display server 1 link
+
+<img src="./.github/img4.jpg" height="auto" width="100%" />
