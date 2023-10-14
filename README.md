@@ -6,3 +6,5 @@ Currently supports the following get links
 
 - Mega.nz
 - Direct
+
+Note: All files will be zip compressed, When downloading, unzip the zip to see the original file
