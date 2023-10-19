@@ -70,8 +70,5 @@ jobs:
           # kakathic
           cd Up
           url1="$(ls)"
-          echo $url1
-          echo $SEVERc
-          echo "curl 'https://gbdrive.xyz/api/v1/uploads' -H 'Authorization: Bearer $SEVERc' -F 'file=@$url1' | jq"
-          curl 'https://gbdrive.xyz/api/v1/uploads' -H 'Authorization: Bearer '$SEVERc'' -F 'file=@'$url1'' | jq
+          curl https://gbdrive.xyz/api/v1/uploads -H 'Authorization: Bearer '$SEVERc'' -F 'file=@"'$url1'"' | jq
         
