@@ -52,7 +52,7 @@ jobs:
           cd Up
           url1="$(ls)"
           url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
-          eval "curl -F file=@"$url1" https://"$url2".gofile.io/uploadFile > $HOME/1.json"
+          eval "curl -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile' > $HOME/1.json"
           echo
           echo "Name: $(cat $HOME/1.json | jq -r .data.fileName)"
           echo "Link download: $(cat $HOME/1.json | jq -r .data.downloadPage)"
@@ -70,5 +70,5 @@ jobs:
           # kakathic
           cd Up
           url1="$(ls)"
-          eval "curl https://gbdrive.xyz/api/v1/uploads -H 'Authorization: Bearer "$SEVER3"' -F file=@"$url1" | jq"
+          eval "curl 'https://gbdrive.xyz/api/v1/uploads' -H 'Authorization: Bearer $SEVER3' -F 'file=@$url1' | jq"
           
