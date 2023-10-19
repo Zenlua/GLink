@@ -32,10 +32,10 @@ jobs:
         run: sudo apt-get install megatools
       - name: Download
         env:
-          FEATURE: ${{ inputs.FEATURE }}
+          FEATURE: "${{ inputs.FEATURE }}"
           SEVER1: ${{ inputs.SEVER1 }}
           SEVER2: ${{ inputs.SEVER2 }}
-          SEVER3: ${{ inputs.SEVER3 }}
+          SEVER3: "${{ inputs.SEVER3 }}"
         run: |
           # kakathic
           sudo rm -rf /usr/share/dotnet
