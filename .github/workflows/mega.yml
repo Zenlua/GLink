@@ -70,6 +70,6 @@ jobs:
           # kakathic
           cd Up
           url1="$(ls)"
-          ls
+          echo $SEVER3
           echo "curl 'https://gbdrive.xyz/api/v1/uploads' -H 'Authorization: Bearer $SEVER3' -F 'file=@$url1' | jq"
           
