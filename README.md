@@ -24,8 +24,6 @@ Select the server to upload data
 + Sever 1: Files will be stored for 30 days
   
 + Sever 2: The file will be stored for 2 days
-  
-+ Sever 3: Please create an account at this website: https://gbdrive.xyz/drive, Then create a token in your account settings. When you enter the token, it will automatically upload to server 3. You can store it for as long as you like, free 1TB storage.
 
 See photo instructions
 
