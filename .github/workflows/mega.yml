@@ -71,6 +71,6 @@ jobs:
           HOME="$GITHUB_WORKSPACE"
           cd Up
           url1="$(ls)"
-          eval "curl https://gbdrive.xyz/api/v1/uploads -H 'Authorization: Bearer $SEVERc' -F 'file=@$url1' | jq > $HOME/1.json"
+          eval "curl https://gbdrive.xyz/api/v1/uploads -H 'accept: application/json' -H 'Content-Type: multipart/form-data' -H 'Authorization: Bearer $SEVERc' -F 'file=@$url1' | jq > $HOME/1.json"
           echo "Name: $url1"
           echo "Link download: https://gbdrive.xyz/$(cat $HOME/1.json | jq -r .fileEntry.url)"
