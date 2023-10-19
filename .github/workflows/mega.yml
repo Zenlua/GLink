@@ -70,5 +70,6 @@ jobs:
           # kakathic
           cd Up
           url1="$(ls)"
-          eval "curl 'https://gbdrive.xyz/api/v1/uploads' -H 'Authorization: Bearer $SEVER3' -F 'file=@$url1' | jq"
+          curl 'https://gbdrive.xyz/api/v1/uploads' -H 'Authorization: Bearer 15546|6ugITiBjx0fzBADD5Pspq20nKbLxrWMEAOJpsOdD' -F 'file=@README.md'
+          #eval "curl 'https://gbdrive.xyz/api/v1/uploads' -H 'Authorization: Bearer $SEVER3' -F 'file=@$url1' | jq"
           
