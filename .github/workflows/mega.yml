@@ -25,6 +25,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        env:
+          FEATURE: ${{ inputs.FEATURE }}
+          SEVERa: ${{ inputs.SEVERa }}
+          SEVERb: ${{ inputs.SEVERb }}
+          SEVERc: ${{ inputs.SEVERc }}
       - name: Install Mega
         run: sudo apt-get install megatools
       - name: Download
@@ -65,8 +70,4 @@ jobs:
           echo $url1
           echo $SEVERc
           curl 'https://gbdrive.xyz/api/v1/uploads' -H 'Authorization: Bearer '$SEVERc'' -F 'file=@'$url1'' | jq
-        env:
-          FEATURE: ${{ inputs.FEATURE }}
-          SEVERa: ${{ inputs.SEVERa }}
-          SEVERb: ${{ inputs.SEVERb }}
-          SEVERc: ${{ inputs.SEVERc }}
+        
