@@ -17,7 +17,7 @@ on:
         type: boolean
       SEVERc:
         description: 'Upload sever 3, Input token'
-        required: true
+        required: false
 permissions: write-all
 jobs:
   build:
@@ -50,20 +50,20 @@ jobs:
           echo "Link download: $(cat $HOME/1.json | jq -r .data.downloadPage)"
           echo "Md5: $(cat $HOME/1.json | jq -r .data.md5)"
       - name: Upload 2
-        if: inputs.SEVERb == true
-        uses: actions/upload-artifact@v3
-        with:
-          name: Link-Speed
-          path: Up/*
-          retention-days: 2
-      - name: Upload 3
         if: inputs.SEVERc
         run: |
           # kakathic
           cd Up
           url1="$(ls)"
           echo $SEVERc
-          echo "curl 'https://gbdrive.xyz/api/v1/uploads' -H 'Authorization: Bearer $SEVERc' -F 'file=@$url1' | jq"
+          eval "curl 'https://gbdrive.xyz/api/v1/uploads' -H 'Authorization: Bearer $SEVERc' -F 'file=@$url1' | jq"
+      - name: Upload 3
+        if: inputs.SEVERb == true
+        uses: actions/upload-artifact@v3
+        with:
+          name: Link-Speed
+          path: Up/*
+          retention-days: 2
         env:
           FEATURE: ${{ inputs.FEATURE }}
           SEVERa: ${{ inputs.SEVERa }}
