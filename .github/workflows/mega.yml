@@ -16,6 +16,11 @@ on:
         required: false
         default: false
         type: boolean
+      SEVER3:
+        description: 'Upload sever 3, import token, will upload to the website: gbdrive.xyz/drive'
+        required: false
+        default: ''
+
 permissions: write-all
 jobs:
   build:
@@ -30,6 +35,7 @@ jobs:
           FEATURE: ${{ inputs.FEATURE }}
           SEVER1: ${{ inputs.SEVER1 }}
           SEVER2: ${{ inputs.SEVER2 }}
+          SEVER3: ${{ inputs.SEVER3 }}
         run: |
           # kakathic
           sudo rm -rf /usr/share/dotnet
@@ -58,4 +64,11 @@ jobs:
           name: Link-Speed
           path: Up/*
           retention-days: 2
+      - name: Upload 3
+        if: inputs.SEVER3
+        run: |
+          # kakathic
+          cd Up
+          url1="$(ls)"
+          curl 'https://gbdrive.xyz/api/v1/uploads' -H Authorization: Bearer $SEVER3 -F file=@$url1 | jq
           
