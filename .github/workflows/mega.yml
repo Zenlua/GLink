@@ -5,19 +5,18 @@ on:
       FEATURE:
         description: 'Import link mega: https://mega.nz/xxx'
         required: true
-        default: ''
-      SEVER1:
+      SEVERa:
         description: 'Upload sever 1'
         required: false
         default: false
         type: boolean
-      SEVER2:
+      SEVERb:
         description: 'Upload sever 2'
         required: false
         default: false
         type: boolean
-      SEVER3:
-        description: 'Upload sever 3'
+      SEVERc:
+        description: 'Upload sever 3, Input token'
         required: true
 permissions: write-all
 jobs:
@@ -29,11 +28,6 @@ jobs:
       - name: Install Mega
         run: sudo apt-get install megatools
       - name: Download
-        env:
-          FEATURE: ${{ inputs.FEATURE }}
-          SEVER1: ${{ inputs.SEVER1 }}
-          SEVER2: ${{ inputs.SEVER2 }}
-          SEVER3: ${{ inputs.SEVER3 }}
         run: |
           # kakathic
           sudo rm -rf /usr/share/dotnet
@@ -43,7 +37,7 @@ jobs:
           cd Up
           megadl "$FEATURE"
       - name: Upload 1
-        if: inputs.SEVER1 == true
+        if: inputs.SEVERa == true
         run: |
           # kakathic
           HOME="$GITHUB_WORKSPACE"
@@ -56,18 +50,22 @@ jobs:
           echo "Link download: $(cat $HOME/1.json | jq -r .data.downloadPage)"
           echo "Md5: $(cat $HOME/1.json | jq -r .data.md5)"
       - name: Upload 2
-        if: inputs.SEVER2 == true
+        if: inputs.SEVERb == true
         uses: actions/upload-artifact@v3
         with:
           name: Link-Speed
           path: Up/*
           retention-days: 2
       - name: Upload 3
-        if: inputs.SEVER3
+        if: inputs.SEVERc
         run: |
           # kakathic
           cd Up
           url1="$(ls)"
-          echo $SEVER3
-          echo "curl 'https://gbdrive.xyz/api/v1/uploads' -H 'Authorization: Bearer $SEVER3' -F 'file=@$url1' | jq"
-          
+          echo $SEVERc
+          echo "curl 'https://gbdrive.xyz/api/v1/uploads' -H 'Authorization: Bearer $SEVERc' -F 'file=@$url1' | jq"
+        env:
+          FEATURE: ${{ inputs.FEATURE }}
+          SEVERa: ${{ inputs.SEVERa }}
+          SEVERb: ${{ inputs.SEVERb }}
+          SEVERc: ${{ inputs.SEVERc }}
