@@ -15,9 +15,6 @@ on:
         required: false
         default: false
         type: boolean
-      SEVERc:
-        description: 'Upload sever 3, Input token'
-        required: false
 permissions: write-all
 jobs:
   build:
@@ -62,15 +59,3 @@ jobs:
           name: Link-Speed
           path: Up/*
           retention-days: 2
-      - name: Upload 3
-        env:
-          SEVERc: ${{ inputs.SEVERc }}
-        if: inputs.SEVERc
-        run: |
-          # kakathic
-          HOME="$GITHUB_WORKSPACE"
-          cd Up
-          url1="$(ls)"
-          eval "curl https://gbdrive.xyz/api/v1/uploads -H 'accept: application/json' -H 'Content-Type: multipart/form-data' -H 'Authorization: Bearer $SEVERc' -F 'file=@$url1' | jq > $HOME/1.json"
-          echo "Name: $url1"
-          echo "Link download: https://gbdrive.xyz/$(cat $HOME/1.json | jq -r .fileEntry.url)"
