@@ -25,14 +25,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        env:
-          FEATURE: ${{ inputs.FEATURE }}
-          SEVERa: ${{ inputs.SEVERa }}
-          SEVERb: ${{ inputs.SEVERb }}
-          SEVERc: ${{ inputs.SEVERc }}
       - name: Install Mega
         run: sudo apt-get install megatools
       - name: Download
+        env:
+          FEATURE: ${{ inputs.FEATURE }}
         run: |
           # kakathic
           sudo rm -rf /usr/share/dotnet
@@ -42,6 +39,8 @@ jobs:
           cd Up
           megadl "$FEATURE"
       - name: Upload 1
+        env:
+          SEVERa: ${{ inputs.SEVERa }}
         if: inputs.SEVERa == true
         run: |
           # kakathic
@@ -55,6 +54,8 @@ jobs:
           echo "Link download: $(cat $HOME/1.json | jq -r .data.downloadPage)"
           echo "Md5: $(cat $HOME/1.json | jq -r .data.md5)"
       - name: Upload 2
+        env:
+          SEVERb: ${{ inputs.SEVERb }}
         if: inputs.SEVERb == true
         uses: actions/upload-artifact@v3
         with:
@@ -62,6 +63,8 @@ jobs:
           path: Up/*
           retention-days: 2
       - name: Upload 3
+        env:
+          SEVERc: ${{ inputs.SEVERc }}
         if: inputs.SEVERc
         run: |
           # kakathic
