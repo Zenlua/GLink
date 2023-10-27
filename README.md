@@ -13,12 +13,6 @@ Note:
 
 - You can see at server 1 link, it will download the file directly without zip compression.
 
-Donate:
-
-- [Paypal](https://www.paypal.com/paypalme/kakathic)
-  
-- [Patreon](https://www.patreon.com/Kakathic)
-
 Select the server to upload data
 
 + Sever 1: Files will be stored for 30 days
