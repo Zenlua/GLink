@@ -1,31 +1,29 @@
 name: Get Link Speed
 description: See details
-title: "Xây dựng ROM"
-labels: ["build"]
+title: "Get Link"
+labels: ["Link"]
 body:
   - type: markdown
     attributes:
       value: |
-        Điền vào thông tin bên dưới để hoàn thành quá trình xây dựng rom
+        Just enter the link and it will download and upload to another server.
   - type: input
     attributes:
-      label: Nhập liên kết
+      label: Link input
       description: |
-        Hãy điền liên kết tải rom vào đây
-        Ví dụ: `Url: http://link.rom/file.zip`
-        Chỉ hỗ trợ android 12 trở nên, nên dùng link rom của Xiaomi, không hỗ trợ rom port.
+        Input link `Url: http://file.com/path`
+        Support: `Mega.nz`, `Direct`
       placeholder: "Url:"
       value: "Url: "
     validations:
       required: true
   - type: dropdown
     attributes:
-      label: Kích cỡ Super
-      description: Chọn kích cỡ file super, xem hướng dẫn kiểm tra kích cỡ bên dưới.
+      label: Select upload server
+      description: After downloading it will upload to the server you have chose
       options:
-        - 8.5GB
-        - 9GB
-        - 9.5.GB
+        - gofile.io
+        - test
       default: 0
     validations:
       required: true
