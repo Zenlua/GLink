@@ -30,26 +30,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        Sau khi hoàn thành toàn bộ hãy ấn vào nút màu xanh lá để hoàn thành `Submit new issue`   
+        Once completed, press the green button to complete `Submit new issue`   
 
-        Sau khi xây dựng xong bot sẽ gửi link download rom vào bài viết này.
-        > Link download chỉ tồn tại trong thời gian ngắn 10 - 30 ngày
-  - type: checkboxes
-    attributes:
-      label: Tùy chọn
-      description: Tích vào ô bên dưới để thêm tính năng khi build rom.
-      options:
-        - label: "Thêm Tiếng Việt"
-        - label: Test
-          required: false
-
-  - type: textarea
-    attributes:
-      label: Xoá ứng dụng
-      description: |
-        Tên thư mục ứng dụng ở /system/app/AiAsstVision, priv-app, product v.v
-      render: shell
-      value: "AiAsstVision "
-
-
-      
+        > The download link only lasts for a short time of 10 - 30 days, depending on the server 
