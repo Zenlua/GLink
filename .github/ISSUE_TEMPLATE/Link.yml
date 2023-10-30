@@ -1,0 +1,57 @@
+name: Get Link Speed
+description: See details
+title: "Xây dựng ROM"
+labels: ["build"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Điền vào thông tin bên dưới để hoàn thành quá trình xây dựng rom
+  - type: input
+    attributes:
+      label: Nhập liên kết
+      description: |
+        Hãy điền liên kết tải rom vào đây
+        Ví dụ: `Url: http://link.rom/file.zip`
+        Chỉ hỗ trợ android 12 trở nên, nên dùng link rom của Xiaomi, không hỗ trợ rom port.
+      placeholder: "Url:"
+      value: "Url: "
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Kích cỡ Super
+      description: Chọn kích cỡ file super, xem hướng dẫn kiểm tra kích cỡ bên dưới.
+      options:
+        - 8.5GB
+        - 9GB
+        - 9.5.GB
+      default: 0
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        Sau khi hoàn thành toàn bộ hãy ấn vào nút màu xanh lá để hoàn thành `Submit new issue`   
+
+        Sau khi xây dựng xong bot sẽ gửi link download rom vào bài viết này.
+        > Link download chỉ tồn tại trong thời gian ngắn 10 - 30 ngày
+  - type: checkboxes
+    attributes:
+      label: Tùy chọn
+      description: Tích vào ô bên dưới để thêm tính năng khi build rom.
+      options:
+        - label: "Thêm Tiếng Việt"
+        - label: Test
+          required: false
+
+  - type: textarea
+    attributes:
+      label: Xoá ứng dụng
+      description: |
+        Tên thư mục ứng dụng ở /system/app/AiAsstVision, priv-app, product v.v
+      render: shell
+      value: "AiAsstVision "
+
+
+      
