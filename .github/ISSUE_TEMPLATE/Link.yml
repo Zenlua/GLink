@@ -1,4 +1,4 @@
-name: Get Link Speed
+name: Get Link
 description: See details
 title: "Get Link"
 labels: ["Link"]
@@ -22,8 +22,8 @@ body:
       label: Select upload server
       description: After downloading it will upload to the server you have chose
       options:
-        - gofile.io
-        - test
+        - Gofile
+        - Transfer
       default: 0
     validations:
       required: true
