@@ -12,44 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: 'Tải về'
+      - name: 'Start process'
         run: |
           # Kakathic         
           bash .github/Link.sh
-
-      - name: Download
-        env:
-          FEATURE: ${{ inputs.FEATURE }}
-        run: |
-          # kakathic
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /opt/ghc
-          sudo rm -rf /usr/local/share/boost
-          mkdir -p Up
-          cd Up
-          User="User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0"
-          curl -L -N -H "$User" --connect-timeout 20 -O "$FEATURE"
-      - name: Upload 1
-        env:
-          SEVERa: ${{ inputs.SEVERa }}
-        if: inputs.SEVERa == true
-        run: |
-          # kakathic
-          HOME="$GITHUB_WORKSPACE"
-          cd Up
-          url1="$(ls)"
-          url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
-          eval "curl -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile' > $HOME/1.json"
-          echo
-          echo "Name: $(cat $HOME/1.json | jq -r .data.fileName)"
-          echo "Link download: $(cat $HOME/1.json | jq -r .data.downloadPage)"
-          echo "Md5: $(cat $HOME/1.json | jq -r .data.md5)"
-      - name: Upload 2
-        env:
-          SEVERb: ${{ inputs.SEVERb }}
-        if: inputs.SEVERb == true
-        uses: actions/upload-artifact@v3
-        with:
-          name: Link-Speed
-          path: Up/*
-          retention-days: 2
