@@ -1,8 +1,5 @@
 #kakathic
 
-# install
-sudo apt-get install megatools
-
 # Home
 TOME="$GITHUB_WORKSPACE"
 
@@ -52,6 +49,7 @@ Chatbot "Download to your device..."
 (
 # Tải về 
 if [ "$SVD" = 1 ];then
+sudo apt-get install megatools
 megadl "$URL"
 else
 Taive "$URL"
