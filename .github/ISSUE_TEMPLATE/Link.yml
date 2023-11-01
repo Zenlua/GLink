@@ -30,6 +30,8 @@ body:
   - type: markdown
     attributes:
       value: |
+        > Gofile - Unlimited/file
+        > Transfer - 10Gb/file
+      
         Once completed, press the green button to complete `Submit new issue`   
-
         > The download link only lasts for a short time of 10 - 30 days, depending on the server 
