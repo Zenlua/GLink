@@ -29,6 +29,9 @@ Xem "https://github.com/Zelooooo/GLink/issues/$NUMBIE" > $TOME/1.ht
 # get url
 URL="$(grep -m1 'dir="auto">Url:' $TOME/1.ht | grep -o 'Url:.*<' | sed 's|Url:<||' | cut -d '"' -f2)"
 
+# get sv
+chsv="$(checktc Transfer)"
+
 if [ "$URL" ];then
 Chatbot "Link detected: $URL"
 addlabel "Wait"
