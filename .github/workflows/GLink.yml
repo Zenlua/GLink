@@ -1,6 +1,10 @@
 name: GLink
 on:
   workflow_dispatch: 
+  issues:
+    types:
+      - opened
+      - reopened
 permissions: write-all
 jobs:
   build:
