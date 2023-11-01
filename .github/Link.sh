@@ -44,20 +44,36 @@ mkdir -p Up
 cd Up
 
 Chatbot "Download to your device..."
+# phát hiện sv
 [ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ] && SVD=1
-
+(
+# Tải về 
 if [ "$SVD" = 1 ];then
-
+megadl "$URL"
 else
 Taive "$URL"
 fi
+echo > "$TOME/done"
+) & (
+# Tải rom và tải file khác
+while true; do
+if [ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ];then
+Chatbot "Đã nhận được lệnh hủy quá trình."
+cancelrun
+else
+[ -e "$TOME/done" ] && break
+sleep 10
+fi
+done
+)
 
 # Tên file
 url1="$(ls)"
 
 Chatbot "Uploading files to the server..."
+# upload 
 if [ "$chsv" == 1 ];then
-
+LinkDow="$(curl --upload-file "$url1" https://transfer.sh)"
 else
 url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
 eval "curl -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile' > $TOME/1.json"
