@@ -30,7 +30,7 @@ cancelrun
 
 # chat
 Chatbot "Start looking for links..."
-Chatbot "The process can be canceled by pressing the `Close Issues` button"
+Chatbot 'The process can be canceled by pressing the `Close Issues` button'
 
 # get 
 Xem "https://github.com/Zelooooo/GLink/issues/$NUMBIE" > $TOME/1.ht
