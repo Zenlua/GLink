@@ -11,7 +11,7 @@ body:
     attributes:
       label: Link input
       description: |
-        Input link `Url: http://file.com/path`
+        Input link Url: http://file_com/path
         Support: `Mega.nz`, `Direct`
       placeholder: "Url:"
       value: "Url: "
