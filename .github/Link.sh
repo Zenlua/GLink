@@ -2,6 +2,7 @@
 
 # Home
 TOME="$GITHUB_WORKSPACE"
+User="User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
 
 # clear 
 #sudo rm -rf /usr/share/dotnet
@@ -9,8 +10,8 @@ TOME="$GITHUB_WORKSPACE"
 #sudo rm -rf /usr/local/share/boost
 
 # function
-Xem () { curl -s -G -L -N -H --connect-timeout 20 "$1"; }
-Taive () { curl -L -N -H --connect-timeout 20 -O "$1"; }
+Xem () { curl -s -G -L -N -H "$User" --connect-timeout 20 "$1"; }
+Taive () { curl -L -N -H "$User" --connect-timeout 20 -O "$1"; }
 checktc(){ grep -co 'dir="auto">.*'$1'' $TOME/1.ht 2>/dev/null; }
 
 # bot chat, thêm thẻ, đóng và chat, hủy chạy work, xoá thẻ 
@@ -19,6 +20,13 @@ addlabel(){ gh issue edit $NUMBIE --add-label "$1"; }
 closechat(){ gh issue close $NUMBIE -c "$1"; }
 cancelrun(){ gh run cancel $GITHUB_RUN_ID; }
 removelabel(){ gh issue edit $NUMBIE --remove-label "$1"; }
+
+bug(){
+closechat "$1"
+addlabel "Error"
+removelabel "Wait"
+cancelrun
+}
 
 # chat
 Chatbot "Start looking for links..."
@@ -37,10 +45,7 @@ if [ "$URL" ];then
 Chatbot "Link detected: $URL"
 addlabel "Wait"
 else
-closechat "No link detected, stop process."
-addlabel "Error"
-removelabel "Wait"
-cancelrun
+bug "No link detected, stop process."
 fi
 
 # tao tm
@@ -75,7 +80,8 @@ done
 # Tên file
 url1="$(ls)"
 
-Chatbot "Uploading files to the server..."
+[ "$url1" ] && Chatbot "Uploading files to the server..." || bug "Download file not found, download error."
+
 # upload 
 if [ "$chsv" == 1 ];then
 LinkDow="$(curl --upload-file "$url1" https://transfer.sh)"
