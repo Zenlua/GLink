@@ -19,7 +19,7 @@ body:
       required: true
   - type: dropdown
     attributes:
-      label: Select upload server
+      label: Upload server
       description: After downloading it will upload to the server you have chose
       options:
         - Gofile
