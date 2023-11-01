@@ -1,29 +1,22 @@
-name: Direct-Link
+name: GLink
 on:
-  workflow_dispatch:
-    inputs:
-      FEATURE:
-        description: 'Import link: https://xxx.com/xxx'
-        required: true
-      SEVERa:
-        description: 'Upload sever 1'
-        required: false
-        default: true
-        type: boolean
-      SEVERb:
-        description: 'Upload sever 2'
-        required: false
-        default: false
-        type: boolean
+  workflow_dispatch: 
 permissions: write-all
 jobs:
   build:
     name: 'See-progress'
     runs-on: ubuntu-latest
+    env:
+      NUMBIE: ${{ github.event.issue.number }}
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Install Mega
-        run: sudo apt-get install megatools
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: 'Tải về'
+        run: |
+          # Kakathic         
+          bash .github/Link.sh
+
       - name: Download
         env:
           FEATURE: ${{ inputs.FEATURE }}
