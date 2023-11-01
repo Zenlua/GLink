@@ -79,7 +79,6 @@ done
 
 # Tên file
 url1="$(ls)"
-
 [ "$url1" ] && Chatbot "Uploading files to the server..." || bug "Download file not found, download error."
 
 # upload 
@@ -91,6 +90,11 @@ eval "curl -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile' > $TOME/1.json"
 LinkDow="$(cat $TOME/1.json | jq -r .data.downloadPage)"
 fi
 
+# link download 
+if [ "$LinkDow" ];then
 removelabel "Wait"
 addlabel "Complete"
 closechat "Link download: $LinkDow"
+else
+bug "Download link not found, upload error."
+fi
