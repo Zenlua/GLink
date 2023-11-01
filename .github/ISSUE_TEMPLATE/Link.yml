@@ -1,6 +1,6 @@
 name: Get Link
 description: See details
-title: "Get Link"
+title: "Link Speed"
 labels: ["Link"]
 body:
   - type: markdown
