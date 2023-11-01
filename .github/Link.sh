@@ -4,9 +4,9 @@
 TOME="$GITHUB_WORKSPACE"
 
 # clear 
-sudo rm -rf /usr/share/dotnet
-sudo rm -rf /opt/ghc
-sudo rm -rf /usr/local/share/boost
+#sudo rm -rf /usr/share/dotnet
+#sudo rm -rf /opt/ghc
+#sudo rm -rf /usr/local/share/boost
 
 # function
 Xem () { curl -s -G -L -N -H --connect-timeout 20 "$1"; }
@@ -19,6 +19,10 @@ addlabel(){ gh issue edit $NUMBIE --add-label "$1"; }
 closechat(){ gh issue close $NUMBIE -c "$1"; }
 cancelrun(){ gh run cancel $GITHUB_RUN_ID; }
 removelabel(){ gh issue edit $NUMBIE --remove-label "$1"; }
+
+# chat
+Chatbot "Start looking for links..."
+Chatbot "The process can be canceled by pressing the `Close Issues` button"
 
 # get 
 Xem "https://github.com/Zelooooo/GLink/issues/$NUMBIE" > $TOME/1.ht
