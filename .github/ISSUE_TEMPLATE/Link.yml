@@ -1,4 +1,4 @@
-name: Get Link Speed
+name: Get Link
 description: See details
 title: "Get Link"
 labels: ["Link"]
@@ -19,17 +19,19 @@ body:
       required: true
   - type: dropdown
     attributes:
-      label: Select upload server
+      label: Upload server
       description: After downloading it will upload to the server you have chose
       options:
-        - gofile.io
-        - test
+        - Gofile
+        - Transfer
       default: 0
     validations:
       required: true
   - type: markdown
     attributes:
       value: |
+        > Gofile - Unlimited/file
+        > Transfer - 10Gb/file
+      
         Once completed, press the green button to complete `Submit new issue`   
-
         > The download link only lasts for a short time of 10 - 30 days, depending on the server 

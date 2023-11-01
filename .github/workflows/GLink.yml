@@ -1,0 +1,23 @@
+name: GLink
+on:
+  workflow_dispatch: 
+  issues:
+    types:
+      - opened
+      - reopened
+permissions: write-all
+jobs:
+  build:
+    name: 'See progress'
+    if: github.repository == 'Zelooooo/GLink' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    env:
+      NUMBIE: ${{ github.event.issue.number }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: 'Start process'
+        run: |
+          # Kakathic         
+          bash .github/Link.sh
