@@ -20,6 +20,7 @@ addlabel(){ gh issue edit $NUMBIE --add-label "$1"; }
 closechat(){ gh issue close $NUMBIE -c "$1"; }
 cancelrun(){ gh run cancel $GITHUB_RUN_ID; }
 removelabel(){ gh issue edit $NUMBIE --remove-label "$1"; }
+addtitle(){ gh issue edit $NUMBIE --title "$1"; }
 
 bug(){
 closechat "$1"
@@ -81,6 +82,7 @@ done
 url1="$(ls)"
 echo "- Name: $url1"
 [ "$url1" ] && Chatbot "Uploading files to the server..." || bug "Download file not found, download error."
+addtitle "Link Speed: $url1"
 
 # upload 
 if [ "$chsv" == 1 ];then
