@@ -79,6 +79,7 @@ done
 
 # Tên file
 url1="$(ls)"
+echo "- Name: $url1"
 [ "$url1" ] && Chatbot "Uploading files to the server..." || bug "Download file not found, download error."
 
 # upload 
