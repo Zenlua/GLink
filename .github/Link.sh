@@ -59,7 +59,7 @@ Chatbot "Download to your device..."
 (
 # Tải về 
 if [ "$SVD" = 1 ];then
-sudo apt-get install megatools
+sudo apt-get install megatools >/dev/null 2>/dev/null
 megadl "$URL"
 else
 Taive "$URL"
