@@ -23,6 +23,7 @@ removelabel(){ gh issue edit $NUMBIE --remove-label "$1"; }
 
 bug(){
 closechat "$1"
+closechat "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discussions)"
 addlabel "Error"
 removelabel "Wait"
 cancelrun
@@ -68,8 +69,7 @@ echo > "$TOME/done"
 # Tải rom và tải file khác
 while true; do
 if [ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ];then
-Chatbot "Đã nhận được lệnh hủy quá trình."
-cancelrun
+bug "The order to cancel the process has been received."
 else
 [ -e "$TOME/done" ] && break
 sleep 10
