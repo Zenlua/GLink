@@ -15,9 +15,9 @@ Taive () { curl -L -N -H "$User" --connect-timeout 20 -O "$1"; }
 checktc(){ grep -co 'dir="auto">.*'$1'' $TOME/1.ht 2>/dev/null; }
 
 # bot chat, thêm thẻ, đóng và chat, hủy chạy work, xoá thẻ 
-Chatbot(){ gh issue comment $NUMBIE --body "$1" & echo "$1"; }
+Chatbot(){ gh issue comment $NUMBIE --body "$1" 2>/dev/null & echo "$1"; }
 addlabel(){ gh issue edit $NUMBIE --add-label "$1"; }
-closechat(){ gh issue close $NUMBIE -c "$1"; }
+closechat(){ gh issue close $NUMBIE -c "$1" 2>/dev/null; }
 cancelrun(){ gh run cancel $GITHUB_RUN_ID; }
 removelabel(){ gh issue edit $NUMBIE --remove-label "$1"; }
 addtitle(){ gh issue edit $NUMBIE --title "$1"; }
