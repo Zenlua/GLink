@@ -62,9 +62,9 @@ Chatbot "Download to your device..."
 # Tải về 
 if [ "$SVD" = 1 ];then
 sudo apt-get install megatools >/dev/null 2>/dev/null
-megadl "$URL" | tee "$TOME/bug.txt"
+megadl "$URL" 2>&1 | tee "$TOME/bug.txt"
 else
-Taive "$URL" | tee "$TOME/bug.txt"
+Taive "$URL" 2>&1 | tee "$TOME/bug.txt"
 fi
 echo > "$TOME/done"
 ) & (
