@@ -96,12 +96,11 @@ addtitle "Link Speed: $url1"
 # upload 
 if [ "$chsv" == 1 ];then
 LinkDow="$(curl --upload-file "$url1" https://transfer.sh)"
-elif [ "$chsv" == 2 ];then
+else
 url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
 eval "curl -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile' > $TOME/1.json"
 LinkDow="$(cat $TOME/1.json | jq -r .data.downloadPage)"
-else
-LinkDow="$(eval "curl -X POST -F 'email=kakathic@gmail.com' -F 'key=xcjdJTOsvZJhgVV10B' -F 'file=@$url1' -F 'folder=821972' https://ul.mixdrop.ag/api" | jq -r .result.url)"
+#LinkDow="$(eval "curl -X POST -F 'email=kakathic@gmail.com' -F 'key=xcjdJTOsvZJhgVV10B' -F 'file=@$url1' -F 'folder=821972' https://ul.mixdrop.ag/api" | jq -r .result.url)"
 fi
 
 # link download 
