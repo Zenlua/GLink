@@ -62,9 +62,9 @@ Chatbot "Download to your device..."
 # Tải về 
 if [ "$SVD" = 1 ];then
 sudo apt-get install megatools >/dev/null 2>/dev/null
-megadl "$URL"
+megadl "$URL" | tee "$TOME/bug.txt"
 else
-Taive "$URL"
+Taive "$URL" | tee "$TOME/bug.txt"
 fi
 echo > "$TOME/done"
 ) & (
@@ -82,7 +82,7 @@ done
 # Tên file
 url1="$(ls)"
 echo "- Name: $url1"
-[[ -e "$url1" ]] && Chatbot "Uploading files to the server..." || bug "Download file not found, download error."
+[[ -e "$url1" ]] && Chatbot "Uploading files to the server..." || bug "Download file not found, download error.<br/><br/>$(cat "$TOME/bug.txt")"
 sleep 1
 addtitle "Link Speed: $url1"
 
