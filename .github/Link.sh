@@ -28,6 +28,7 @@ closechat "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discu
 addlabel "Error"
 removelabel "Wait"
 cancelrun
+sleep 10
 }
 
 # chat
