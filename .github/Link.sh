@@ -28,7 +28,7 @@ closechat "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discu
 addlabel "Error"
 removelabel "Wait"
 cancelrun
-sleep 10
+exit 0
 }
 
 # chat
@@ -82,7 +82,8 @@ done
 # Tên file
 url1="$(ls)"
 echo "- Name: $url1"
-[ -e "$url1" ] && Chatbot "Uploading files to the server..." || bug "Download file not found, download error."
+[[ "$url1" ]] && Chatbot "Uploading files to the server..." || bug "Download file not found, download error."
+sleep 1
 addtitle "Link Speed: $url1"
 
 # upload 
