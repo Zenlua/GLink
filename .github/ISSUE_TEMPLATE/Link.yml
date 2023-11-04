@@ -31,7 +31,6 @@ body:
   - type: markdown
     attributes:
       value: |
-        > Mixdrop - Unlimited/file
         > Gofile - Unlimited/file
         > Transfer - 10Gb/file
       
