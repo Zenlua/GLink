@@ -1,5 +1,9 @@
 # Get Link
 
+See the list of links below
+
+- [List details](https://github.com/Zelooooo/GLink/issues?q=is%3Aissue+is%3Aclosed)
+
 Instructions to get link, create a Github account
 
 1. Create [issues](https://github.com/Zelooooo/GLink/issues/new/choose)
@@ -9,8 +13,6 @@ Instructions to get link, create a Github account
 5. Wait until the download link appears
 
 Note: Mega link can only get 1 file, not the whole folder.
-
-Get Link List: [See details](https://github.com/Zelooooo/GLink/issues?q=is%3Aissue+is%3Aclosed)
 
 Photo instructions
 
