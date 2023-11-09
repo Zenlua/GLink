@@ -10,9 +10,9 @@ Instructions to get link, create a Github account
 
 Note: Mega link can only get 1 file, not the whole folder.
 
-GLink list: [See details](https://github.com/Zelooooo/GLink/issues?q=is%3Aissue+is%3Aclosed)
+Get Link List: [See details](https://github.com/Zelooooo/GLink/issues?q=is%3Aissue+is%3Aclosed)
 
-See photo instructions
+Photo instructions
 
 <img src="./.github/img.jpg" height="auto" width="49%" /> <img src="./.github/img2.jpg" height="auto" width="49%" />
 <img src="./.github/img3.jpg" height="auto" width="49%" /> <img src="./.github/img4.jpg" height="auto" width="49%" />
