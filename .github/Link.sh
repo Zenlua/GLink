@@ -27,8 +27,8 @@ chatbotedit(){ gh issue comment $NUMBIE --edit-last -b "$1" >/dev/null; }
 bug(){
 closechat "$1"
 closechat "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discussions)"
-addlabel "Error"
-removelabel "Wait"
+addlabel "Error" & removelabel "Wait"
+sleep 1
 cancelrun
 exit 0
 }
@@ -78,7 +78,6 @@ fi
 echo > "$TOME/done"
 
 ) & (
-
 # Tải rom và tải file khác
 while true; do
 if [ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ];then
@@ -86,13 +85,13 @@ bug "The order to cancel the process has been received."
 else
 [ -e "$TOME/done" ] && break
 fi
-
-[ -e "$TOME/chat" ] || Chatbot "Calculate loading speed..."
-[ -e "$TOME/chat" ] || echo > $TOME/chat
- 
+if [ ! -e "$TOME/chat" ];then
+Chatbot "Calculate loading speed..."
+echo > $TOME/chat
+sleep 1
+fi
 sleep 1
 [ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ] && chatbotedit "$(tail -n1 $TOME/bug.txt)" || chatbotedit "$(tail -c80 $TOME/bug.txt | awk '{print "Total: "$3" Loaded: "$5" Speed: "$13"b"}')"
-
 done
 )
 
