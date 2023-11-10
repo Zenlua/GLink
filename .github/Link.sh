@@ -64,8 +64,6 @@ fi
 mkdir -p Up
 cd Up
 
-Chatbot "Download to your device..."
-
 (
 # phát hiện sv download & tải về 
 if [ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ];then
@@ -91,10 +89,9 @@ else
 sleep 10
 fi
 if [ -e "$TOME/bug.txt" ];then
-sleep 1
 [ -e "$TOME/chat" ] || Chatbot "Calculate loading speed..."
-sleep 5
 echo > $TOME/chat
+sleep 1
 chatbotedit "$(tail -c80 bug.txt | awk '{print "Total: "$3" Loaded: "$5" Speed: "$13"b"}')"
 fi
 done
