@@ -22,7 +22,7 @@ closechat(){ gh issue close $NUMBIE -c "$1" >/dev/null; }
 cancelrun(){ gh run cancel $GITHUB_RUN_ID >/dev/null; }
 removelabel(){ gh issue edit $NUMBIE --remove-label "$1" >/dev/null; }
 addtitle(){ gh issue edit $NUMBIE --title "$1" >/dev/null; }
-chatbotedit(){ gh issue comment $NUMBIE --edit-last "$1" >/dev/null; }
+chatbotedit(){ gh issue comment $NUMBIE --edit-last -b "$1" >/dev/null; }
 
 bug(){
 closechat "$1"
