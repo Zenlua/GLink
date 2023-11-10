@@ -12,6 +12,7 @@ User="User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/53
 # function
 Xem () { curl -s -G -L -N -H "$User" --connect-timeout 20 "$1"; }
 Taive () { curl -L -N -H "$User" --connect-timeout 20 -O "$1"; }
+Taive2 () { curl -L -N -H "$User" --connect-timeout 20 "$1" -o "$2"; }
 checktc(){ grep -co 'dir="auto">.*'$1'' $TOME/1.ht 2>/dev/null; }
 
 # bot chat, thêm thẻ, đóng và chat, hủy chạy work, xoá thẻ 
@@ -63,18 +64,23 @@ mkdir -p Up
 cd Up
 
 Chatbot "Download to your device..."
-# phát hiện sv
-[ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ] && SVD=1
+
 (
-# Tải về 
-if [ "$SVD" = 1 ];then
+# phát hiện sv download & tải về 
+if [ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ];then
 sudo apt-get install megatools >/dev/null 2>/dev/null
 megadl "$URL" 2>&1 | tee "$TOME/bug.txt"
+elif [ "$(echo "$URL" | grep -cm1 'sourceforge.net')" == 1 ];then
+mausourcef="$(echo "$URL" | cut -d '/' -f 5,7)"
+tensourcef="$(echo "$URL" | cut -d '/' -f 10)"
+Taive2 "$(Xem "${URL}?use_mirror=zenlayer&amp=&use_mirror=zenlayer&r=" | grep -om1 "https://.*.$mausourcef.*" | cut -d '"' -f1)" "$tensourcef" 2>&1 | tee "$TOME/bug.txt"
 else
 Taive "$URL" 2>&1 | tee "$TOME/bug.txt"
 fi
 echo > "$TOME/done"
+
 ) & (
+
 # Tải rom và tải file khác
 while true; do
 if [ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ];then
