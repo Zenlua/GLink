@@ -34,7 +34,6 @@ exit 0
 }
 
 # chat
-Chatbot "Start looking for links..."
 Chatbot 'The process can be canceled by pressing the `Close Issues` button'
 
 # get 
