@@ -86,12 +86,14 @@ bug "The order to cancel the process has been received."
 else
 [ -e "$TOME/done" ] && break
 fi
-if [ -e "$TOME/bug.txt" ];then
+
 [ -e "$TOME/chat" ] || Chatbot "Calculate loading speed..."
+[ -e "$TOME/chat" ] || chatbotedit "Hi"
 [ -e "$TOME/chat" ] || echo > $TOME/chat
+ 
 sleep 1
 [ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ] && chatbotedit "$(tail -n1 $TOME/bug.txt)" || chatbotedit "$(tail -c80 $TOME/bug.txt | awk '{print "Total: "$3" Loaded: "$5" Speed: "$13"b"}')"
-fi
+
 done
 )
 
