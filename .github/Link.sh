@@ -80,16 +80,13 @@ echo > "$TOME/done"
 ) & (
 # Tải rom và tải file khác
 while true; do
-if [ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ];then
-bug "The order to cancel the process has been received."
-else
-[ -e "$TOME/done" ] && break
-fi
+[ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ] && bug "The order to cancel the process has been received."
 if [ ! -e "$TOME/chat" ];then
 Chatbot "Calculate loading speed..."
 echo > $TOME/chat
 sleep 1
 fi
+[ -e "$TOME/done" ] && break
 sleep 1
 [ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ] && chatbotedit "$(tail -n1 $TOME/bug.txt)" || chatbotedit "$(tail -c80 $TOME/bug.txt | awk '{print "Total: "$3" Loaded: "$5" Speed: "$13"b"}')"
 done
