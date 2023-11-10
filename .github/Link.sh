@@ -111,8 +111,7 @@ fi
 
 # link download 
 if [ "$LinkDow" ];then
-removelabel "Wait"
-addlabel "Complete"
+removelabel "Error" & removelabel "Wait" & addlabel "Complete"
 closechat "Link download: $LinkDow"
 else
 bug "Download link not found, upload error."
