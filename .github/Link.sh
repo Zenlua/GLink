@@ -85,13 +85,12 @@ if [ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ];then
 bug "The order to cancel the process has been received."
 else
 [ -e "$TOME/done" ] && break
-sleep 10
 fi
 if [ -e "$TOME/bug.txt" ];then
 [ -e "$TOME/chat" ] || Chatbot "Calculate loading speed..."
-echo > $TOME/chat
+[ -e "$TOME/chat" ] || echo > $TOME/chat
 sleep 1
-[ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ] && chatbotedit "$(tail -c80 $TOME/bug.txt)" || chatbotedit "$(tail -c80 $TOME/bug.txt | awk '{print "Total: "$3" Loaded: "$5" Speed: "$13"b"}')"
+[ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ] && chatbotedit "$(tail -n1 $TOME/bug.txt)" || chatbotedit "$(tail -c80 $TOME/bug.txt | awk '{print "Total: "$3" Loaded: "$5" Speed: "$13"b"}')"
 fi
 done
 )
