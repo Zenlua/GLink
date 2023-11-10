@@ -6,9 +6,10 @@ See the list of links below
 
 Url sample to get file
 
-1. Direct `https://file.com/file.zip`
-2. Mage.nz `https://mega.nz/file/xxxx#xxxxx`
-3. sourceforge.net `https://sourceforge.net/xxx/download`
+1. Direct https://file.com/file.zip
+2. Mage.nz https://mega.nz/file/xxx#xxx
+3. Sourceforge.net https://sourceforge.net/xxx/download
+4. Androidfilehost.com https://xx.androidfilehost.com/xx/xx.zip
 
 Instructions to get link, create a Github account
 
