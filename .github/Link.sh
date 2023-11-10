@@ -22,7 +22,7 @@ closechat(){ gh issue close $NUMBIE -c "$1" >/dev/null; }
 cancelrun(){ gh run cancel $GITHUB_RUN_ID >/dev/null; }
 removelabel(){ gh issue edit $NUMBIE --remove-label "$1" >/dev/null; }
 addtitle(){ gh issue edit $NUMBIE --title "$1" >/dev/null; }
-chatbotedit(){ gh issue comment $NUMBIE --edit-last "$1" >/dev/null; }
+chatbotedit(){ gh issue comment $NUMBIE -e "$1" >/dev/null; }
 
 bug(){
 closechat "$1"
@@ -91,7 +91,7 @@ if [ -e "$TOME/bug.txt" ];then
 [ -e "$TOME/chat" ] || Chatbot "Calculate loading speed..."
 echo > $TOME/chat
 sleep 1
-[ "$(echo "$URL" | grep -cm1 'mega.nz')" ] && chatbotedit "$(tail -c80 $TOME/bug.txt)" || chatbotedit "$(tail -c80 $TOME/bug.txt | awk '{print "Total: "$3" Loaded: "$5" Speed: "$13"b"}')"
+[ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ] && chatbotedit "$(tail -c80 $TOME/bug.txt)" || chatbotedit "$(tail -c80 $TOME/bug.txt | awk '{print "Total: "$3" Loaded: "$5" Speed: "$13"b"}')"
 fi
 done
 )
