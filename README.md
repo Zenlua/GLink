@@ -4,6 +4,12 @@ See the list of links below
 
 - [List details](https://github.com/Zelooooo/GLink/issues?q=is%3Aissue+is%3Aclosed)
 
+Url sample to get file
+
+1. Direct `https://file.com/file.zip`
+2. Mage.nz `https://mega.nz/file/xxxx#xxxxx`
+3. sourceforge.net `https://sourceforge.net/xxx/download`
+
 Instructions to get link, create a Github account
 
 1. Create [issues](https://github.com/Zelooooo/GLink/issues/new/choose)
