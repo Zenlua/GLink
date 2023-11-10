@@ -22,6 +22,7 @@ closechat(){ gh issue close $NUMBIE -c "$1" >/dev/null; }
 cancelrun(){ gh run cancel $GITHUB_RUN_ID >/dev/null; }
 removelabel(){ gh issue edit $NUMBIE --remove-label "$1" >/dev/null; }
 addtitle(){ gh issue edit $NUMBIE --title "$1" >/dev/null; }
+chatbotedit(){ gh issue comment $NUMBIE --edit-last "$1" >/dev/null; }
 
 bug(){
 closechat "$1"
@@ -88,6 +89,13 @@ bug "The order to cancel the process has been received."
 else
 [ -e "$TOME/done" ] && break
 sleep 10
+fi
+if [ -e "$TOME/bug.txt" ];then
+sleep 1
+[ -e "$TOME/chat" ] || Chatbot "Calculate loading speed..."
+sleep 5
+echo > $TOME/chat
+chatbotedit "$(tail -c80 bug.txt | awk '{print "Total: "$3" Loaded: "$5" Speed: "$13"b"}')"
 fi
 done
 )
