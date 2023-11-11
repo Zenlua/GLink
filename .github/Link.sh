@@ -27,7 +27,7 @@ chatbotedit(){ gh issue comment $NUMBIE --edit-last -b "$1" >/dev/null; }
 bug(){
 closechat "$1"
 closechat "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discussions)"
-addlabel "Error" & removelabel "Wait"
+addlabel "Error" & removelabel "Wait,Link"
 sleep 1
 cancelrun
 exit 0
@@ -111,7 +111,7 @@ fi
 
 # link download 
 if [ "$LinkDow" ];then
-removelabel "Error" & removelabel "Wait" & addlabel "Complete"
+removelabel "Error" & removelabel "Wait,Link" & addlabel "Complete"
 closechat "Link download: $LinkDow"
 else
 bug "Download link not found, upload error."
