@@ -1,5 +1,11 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Getlink completed
+    url: https://github.com/Zelooooo/GLink/issues?q=is%3Aissue+is%3Aclosed
+    about: List of completed get links
+  - name: Getlink error
+    url: https://github.com/Zelooooo/GLink/discussions
+    about: List of error get links
   - name: 💬 Discuss
     url: https://github.com/Zelooooo/GLink/discussions
     about: Chat room, error reporting, suggestions.
