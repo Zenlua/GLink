@@ -12,7 +12,7 @@ body:
       label: Link input
       description: |
         Input link Url: http://file_com/path
-      placeholder: "Url:"
+      placeholder: "Url: http://file.com/kk.zip"
       value: "Url: "
     validations:
       required: true
