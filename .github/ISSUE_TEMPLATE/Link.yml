@@ -12,7 +12,6 @@ body:
       label: Link input
       description: |
         Input link Url: http://file_com/path
-        Support: `Mega.nz`, `Direct`
       placeholder: "Url:"
       value: "Url: "
     validations:
