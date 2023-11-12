@@ -20,4 +20,4 @@ jobs:
       - name: 'Start process'
         run: |
           # Kakathic         
-          bash .github/Link.sh
+          bash .github/Link.sh 2>&1 | tee -a log.txt
