@@ -1,5 +1,7 @@
 # Get Link
 
+Note that each github account will be limited by github to use 5-10gb speed per day
+
 See the list of links below
 
 - [List details](https://github.com/Zelooooo/GLink/issues?q=is%3Aissue+is%3Aclosed)
