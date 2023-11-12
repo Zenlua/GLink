@@ -78,7 +78,8 @@ fi
 echo > "$TOME/done"
 
 ) & (
-# Tải rom và tải file khác
+# Hiện tốc độ và check close
+jsdhhd=0
 while true; do
 [ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ] && bug "The order to cancel the process has been received."
 if [ ! -e "$TOME/chat" ];then
@@ -87,8 +88,17 @@ echo > $TOME/chat
 sleep 1
 fi
 [ -e "$TOME/done" ] && break
+[ "$(grep -cm1 'API rate limit' log.txt 2>/dev/null)" == 1 ] && bug 'The download speed has exceeded the allowable limit. Please download tomorrow.'
 sleep 1
-[ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ] && chatbotedit "$(tail -n1 $TOME/bug.txt)" || chatbotedit "$(tail -c80 $TOME/bug.txt | awk '{print "Total: "$3" Loaded: "$5" Speed: "$13"b"}')"
+if [ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ];then
+chatbotedit "$(tail -n1 $TOME/bug.txt)"
+else
+chatbotedit "$(tail -c80 $TOME/bug.txt | awk '{print "Total: "$3" Loaded: "$5" Speed: "$13"b"}')"
+checksp="$(tail -c80 $TOME/bug.txt | awk '{print $5$13}')"
+sleep 1
+[ "$(tail -c80 $TOME/bug.txt | awk '{print $5$13}')" == "$checksp" ] && jsdhhd="$(($jsdhhd + 1))"
+[ "$jsdhhd" -ge 10 ] && bug 'Error: Network problem try again tomorrow.'
+fi
 done
 )
 
