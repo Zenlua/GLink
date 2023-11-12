@@ -34,7 +34,7 @@ exit 0
 }
 
 # chat
-Chatbot 'The process can be canceled by pressing the `Close Issues` button, or view the running process 📱[Actions](https://github.com/chamchamfy/RROM/actions/runs/'$GITHUB_RUN_ID')'
+Chatbot 'The process can be canceled by pressing the `Close Issues` button, or view the running process 📱[Actions](https://github.com/Zelooooo/GLink/actions/runs/'$GITHUB_RUN_ID')'
 
 # get 
 Xem "https://github.com/Zelooooo/GLink/issues/$NUMBIE" > $TOME/1.ht
