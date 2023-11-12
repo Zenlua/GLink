@@ -87,9 +87,10 @@ Chatbot "Calculate loading speed..."
 echo > $TOME/chat
 sleep 2
 fi
-[ -e "$TOME/done" ] && break
-[ "$(grep -cm1 'API rate limit' log.txt 2>/dev/null)" == 1 ] && bug 'The download speed has exceeded the allowable limit. Please download tomorrow.'
 sleep 1
+[ -e "$TOME/done" ] && break || ffngnw="$(($ffngnw + 1))"
+[ "$(grep -cm1 'API rate limit' log.txt 2>/dev/null)" == 1 ] && bug 'The download speed has exceeded the allowable limit. Please download tomorrow.'
+[ "$ffngnw" -ge 1200 ] && bug '20 minute download limit has expired, canceling the run.'
 if [ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ];then
 chatbotedit "$(tail -n1 $TOME/bug.txt)"
 [ "$(grep -cm1 bytes $TOME/bug.txt)" == 1 ] && jsdhhd="$(($jsdhhd + 1))" || jsdhhd=0
@@ -112,6 +113,7 @@ sleep 1
 addtitle "Link Speed: $url1"
 
 # upload 
+(
 if [ "$chsv" == 1 ];then
 LinkDow="$(curl --upload-file "$url1" https://transfer.sh)"
 else
@@ -120,6 +122,15 @@ eval "curl -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile' > $TOME/1.json"
 LinkDow="$(cat $TOME/1.json | jq -r .data.downloadPage)"
 #LinkDow="$(eval "curl -X POST -F 'email=kakathic@gmail.com' -F 'key=xcjdJTOsvZJhgVV10B' -F 'file=@$url1' -F 'folder=821972' https://ul.mixdrop.ag/api" | jq -r .result.url)"
 fi
+echo > $TOME/bone
+) & (
+stken=0
+while true; do
+[ -e "$TOME/bone" ] && break || stken="$(($stken + 1))"
+sleep 1
+[ "$stken" -ge 1200 ] && bug '20 minute upload limit has expired, canceling the run.'
+done
+)
 
 # link download 
 if [ "$LinkDow" ];then
