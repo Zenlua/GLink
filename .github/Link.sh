@@ -85,7 +85,7 @@ while true; do
 if [ ! -e "$TOME/chat" ];then
 Chatbot "Calculate loading speed..."
 echo > $TOME/chat
-sleep 1
+sleep 2
 fi
 [ -e "$TOME/done" ] && break
 [ "$(grep -cm1 'API rate limit' log.txt 2>/dev/null)" == 1 ] && bug 'The download speed has exceeded the allowable limit. Please download tomorrow.'
