@@ -2,7 +2,7 @@
 
 See notes when getting link
 
- - Note that each github account will be limited by github to use 5-10gb speed per day
+ - Note that each github account will be limited by github to use 5gb mega speed per day
 
 - If gihub bot doesn't show up, it means you've been speed limited, come back the next day. and `close issue`
 
