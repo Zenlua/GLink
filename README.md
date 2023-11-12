@@ -1,8 +1,12 @@
 # Get Link
 
-Note that each github account will be limited by github to use 5-10gb speed per day
+See notes when getting link
 
-If gihub bot doesn't show up, it means you've been speed limited, come back the next day. and `close issue`
+ - Note that each github account will be limited by github to use 5-10gb speed per day
+
+- If gihub bot doesn't show up, it means you've been speed limited, come back the next day. and `close issue`
+
+- The time limit for downloading is 20 minutes and uploading to the server is also 20 minutes. If time exceeds, the running process will auto cancel. 
 
 See the list of links below
 
