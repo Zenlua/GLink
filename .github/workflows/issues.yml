@@ -12,8 +12,8 @@ jobs:
         with:
           close-issue-message: 'Issue has expired, please try again'
           days-before-issue-close: 1
-          days-before-issue-stale: 0
+          days-before-issue-stale: 1
           days-before-close: 1
-          days-before-stale: 0
-          stale-issue-label: 'Error'
+          days-before-stale: 1
+          stale-issue-label: 'Link'
           
