@@ -1,4 +1,4 @@
-name: 'closed issues'
+name: 'Closed issues'
 on:
   workflow_dispatch:
   schedule:
