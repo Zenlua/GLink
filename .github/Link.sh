@@ -94,13 +94,13 @@ sleep 1
 if [ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ];then
 chatbotedit "$(tail -n1 $TOME/bug.txt)"
 [ "$(grep -cm1 bytes $TOME/bug.txt)" == 1 ] && jsdhhd="$(($jsdhhd + 1))" || jsdhhd=0
-[ "$jsdhhd" -ge 10 ] && bug 'If the download speed is too slow, the process will auto be canceled and reloaded at another time.'
+[ "$jsdhhd" -ge 50 ] && bug 'If the download speed is too slow, the process will auto be canceled and reloaded at another time.'
 else
 chatbotedit "$(tail -c80 $TOME/bug.txt | awk '{print "Total: "$3" Loaded: "$5" Speed: "$13"b"}')"
 checksp="$(tail -c80 $TOME/bug.txt | awk '{print $13}')"
 sleep 1
 [ "$(tail -c80 $TOME/bug.txt | awk '{print $13}')" == "$checksp" ] && jsdhhd="$(($jsdhhd + 1))" || jsdhhd=0
-[ "$jsdhhd" -ge 10 ] && bug 'Error: Network problem try again tomorrow.'
+[ "$jsdhhd" -ge 50 ] && bug 'Error: Network problem try again tomorrow.'
 fi
 done
 )
