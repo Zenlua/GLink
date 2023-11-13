@@ -16,4 +16,5 @@ jobs:
           days-before-close: 1
           days-before-stale: 1
           stale-issue-label: 'Link'
+          close-issue-label: 'Error'
           
