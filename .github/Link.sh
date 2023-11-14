@@ -28,7 +28,7 @@ bug(){
 closechat "$1"
 closechat "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discussions)"
 addlabel "Error" & removelabel "Wait,Link"
-sleep 1
+sleep 10
 cancelrun
 exit 0
 }
