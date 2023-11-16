@@ -107,18 +107,17 @@ done
 # Tên file
 url1="$(ls)"
 echo "- Name: $url1"
-[[ -e "$url1" ]] && Chatbot "Uploading files to the server..." || bug "Download file not found, download error.<br/><br/>$(cat "$TOME/bug.txt")"
+[[ -e "$url1" ]] && chatbotedit "Uploading files to the server..." || bug "Download file not found, download error.<br/><br/>$(cat "$TOME/bug.txt")"
 sleep 1
 addtitle "Link Speed: $url1"
 
 # upload 
 (
 if [ "$chsv" == 1 ];then
-export LinkDow="$(curl --upload-file "$url1" https://transfer.sh 2>&1 > $TOME/1.json)"
+curl --upload-file "$url1" https://transfer.sh 2>&1 > $TOME/1.json
 else
 url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
 eval "curl -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile' 2>&1 > $TOME/1.json"
-export LinkDow="$(cat $TOME/1.json | jq -r .data.downloadPage 2>&1)"
 #LinkDow="$(eval "curl -X POST -F 'email=kakathic@gmail.com' -F 'key=xcjdJTOsvZJhgVV10B' -F 'file=@$url1' -F 'folder=821972' https://ul.mixdrop.ag/api" | jq -r .result.url)"
 fi
 echo > $TOME/bone
@@ -132,10 +131,10 @@ done
 )
 
 # link download 
-if [ "$LinkDow" ];then
+if [ "$(cat $TOME/1.json | jq)" ];then
 removelabel "Wait,Link,Error"
 addlabel "Complete"
-closechat "Link download: $LinkDow"
+closechat "$(cat $TOME/1.json | jq)"
 else
 bug "Download link not found, upload error. $(cat $TOME/1.json | jq)"
 fi
