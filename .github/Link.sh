@@ -114,7 +114,7 @@ addtitle "Link Speed: $url1"
 # upload 
 (
 if [ "$chsv" == 1 ];then
-curl --upload-file "$url1" https://transfer.sh 2>&1 > $TOME/1.json
+curl --upload-file "$url1" https://transfer.sh > $TOME/1.json
 else
 url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
 eval "curl -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile' 2>&1 > $TOME/1.json"
