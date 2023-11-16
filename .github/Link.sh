@@ -114,10 +114,10 @@ addtitle "Link Speed: $url1"
 # upload 
 (
 if [ "$chsv" == 1 ];then
-LinkDow="$(curl --upload-file "$url1" https://transfer.sh)"
+LinkDow="$(curl --upload-file "$url1" https://transfer.sh 2>&1 > $TOME/1.json)"
 else
 url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
-eval "curl -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile' > $TOME/1.json"
+eval "curl -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile' 2>&1 > $TOME/1.json"
 LinkDow="$(cat $TOME/1.json | jq -r .data.downloadPage)"
 #LinkDow="$(eval "curl -X POST -F 'email=kakathic@gmail.com' -F 'key=xcjdJTOsvZJhgVV10B' -F 'file=@$url1' -F 'folder=821972' https://ul.mixdrop.ag/api" | jq -r .result.url)"
 fi
@@ -130,12 +130,12 @@ sleep 1
 [ "$stken" -ge 1200 ] && bug '20 minute upload limit has expired, canceling the run.'
 done
 )
-cat $TOME/1.json
+
 # link download 
 if [ "$LinkDow" ];then
 removelabel "Wait,Link,Error"
 addlabel "Complete"
 closechat "Link download: $LinkDow"
 else
-bug "Download link not found, upload error."
+bug "Download link not found, upload error. $(cat $TOME/1.json)"
 fi
