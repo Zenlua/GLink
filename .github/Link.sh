@@ -27,7 +27,7 @@ chatbotedit(){ gh issue comment $NUMBIE --edit-last -b "$1" >/dev/null; }
 bug(){
 closechat "$1"
 closechat "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discussions)"
-addlabel "Error" & removelabel "Wait,Link"
+addlabel "Error" & removelabel "Wait,Link,Complete"
 sleep 10
 cancelrun
 exit 0
@@ -53,7 +53,7 @@ fi
 
 
 if [ "$URL" ];then
-addlabel "Wait"
+addlabel "Wait" & removelabel "Error"
 else
 bug "No link detected, stop process."
 fi
