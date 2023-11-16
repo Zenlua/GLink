@@ -53,7 +53,6 @@ fi
 
 
 if [ "$URL" ];then
-Chatbot "Link detected: $URL"
 addlabel "Wait"
 else
 bug "No link detected, stop process."
@@ -131,10 +130,11 @@ sleep 1
 [ "$stken" -ge 1200 ] && bug '20 minute upload limit has expired, canceling the run.'
 done
 )
-
+cat $TOME/1.json
 # link download 
 if [ "$LinkDow" ];then
-removelabel "Error" & removelabel "Wait,Link" & addlabel "Complete"
+removelabel "Wait,Link,Error"
+addlabel "Complete"
 closechat "Link download: $LinkDow"
 else
 bug "Download link not found, upload error."
