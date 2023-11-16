@@ -131,10 +131,10 @@ done
 )
 
 # link download 
-if [ "$(cat $TOME/1.json | jq)" ];then
+if [ "$(cat $TOME/1.json)" ];then
 removelabel "Wait,Link,Error"
 addlabel "Complete"
-closechat "$(cat $TOME/1.json | jq)"
+[ "$chsv" == 1 ] && closechat "$(cat $TOME/1.json)" || closechat "$(cat $TOME/1.json | jq)"
 else
 bug "Download link not found, upload error. $(cat $TOME/1.json | jq)"
 fi
