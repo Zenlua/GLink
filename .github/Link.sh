@@ -86,9 +86,7 @@ jsdhhd=0
 while true; do
 if [ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ];then
 bug "The order to cancel the process has been received."
-break
-sleep 1
-exit 1
+sleep 100
 fi
 if [ ! -e "$TOME/chat" ];then
 Chatbot "Calculate loading speed..."
