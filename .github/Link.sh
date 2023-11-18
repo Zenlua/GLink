@@ -2,7 +2,12 @@
 
 # Home
 TOME="$GITHUB_WORKSPACE"
-User="User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"
+user_agent=(
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_1 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/14A403 Safari/602.1"
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/604.5.6 (KHTML, like Gecko) Version/11.0.3 Safari/604.5.6"
+    "Mozilla/5.0 (Windows 7; ) Gecko/geckotrail Firefox/firefoxversion"
+)
+User="${user_agent[RANDOM % ${#user_agent[@]}]}"
 
 # clear 
 #sudo rm -rf /usr/share/dotnet
