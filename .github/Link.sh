@@ -95,7 +95,7 @@ sleep 2
 fi
 sleep 1
 [ -e "$TOME/done" ] && break || ffngnw="$(($ffngnw + 1))"
-[ "$(grep -cm1 'API rate limit' log.txt 2>/dev/null)" == 1 ] && bug 'The download speed has exceeded the allowable limit. Please download tomorrow.'
+[ "$(grep -cm1 'API rate limit' $TOME/log.txt 2>/dev/null)" == 1 ] && bug 'The download speed has exceeded the allowable limit. Please download tomorrow.'
 [ "$ffngnw" -ge 2000 ] && bug '30 minute download limit has expired, canceling the run.'
 if [ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ];then
 chatbotedit "$(tail -n1 $TOME/bug.txt)"
