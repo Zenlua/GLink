@@ -18,15 +18,19 @@ checktc(){ grep -co 'dir="auto">.*'$1'' $TOME/1.ht 2>/dev/null; }
 # bot chat, thêm thẻ, đóng và chat, hủy chạy work, xoá thẻ 
 Chatbot(){ gh issue comment $NUMBIE --body "$1" >/dev/null & echo "$1"; }
 addlabel(){ gh issue edit $NUMBIE --add-label "$1" >/dev/null; }
-closechat(){ gh issue close $NUMBIE -c "$1" >/dev/null; }
+closechat(){ [ "$1" ] && gh issue close $NUMBIE -c "$1" >/dev/null || gh issue close $NUMBIE >/dev/null; }
 cancelrun(){ gh run cancel $GITHUB_RUN_ID >/dev/null; }
 removelabel(){ gh issue edit $NUMBIE --remove-label "$1" >/dev/null; }
 addtitle(){ gh issue edit $NUMBIE --title "$1" >/dev/null; }
 chatbotedit(){ gh issue comment $NUMBIE --edit-last -b "$1" >/dev/null; }
 
 bug(){
-closechat "$1" & closechat "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discussions)" & addlabel "Error" & removelabel "Wait,Link,Complete"
-sleep 10
+Chatbot "$1" &
+Chatbot "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discussions)" &
+addlabel "Error" &
+removelabel "Wait,Link,Complete"
+closechat
+sleep 5
 cancelrun
 exit 0
 }
@@ -78,7 +82,7 @@ echo > "$TOME/done"
 # Hiện tốc độ và check close
 jsdhhd=0
 while true; do
-[ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ] && bug "The order to cancel the process has been received."
+[ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ] && ( bug "The order to cancel the process has been received."; sleep 10 )
 if [ ! -e "$TOME/chat" ];then
 Chatbot "Calculate loading speed..."
 echo > $TOME/chat
