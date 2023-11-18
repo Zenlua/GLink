@@ -30,8 +30,7 @@ addtitle(){ gh issue edit $NUMBIE --title "$1" >/dev/null; }
 chatbotedit(){ gh issue comment $NUMBIE --edit-last -b "$1" >/dev/null; }
 
 bug(){
-Chatbot "$1" &
-Chatbot "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discussions)" &
+Chatbot "$1 <br/><br/>Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discussions)" &
 addlabel "Error" &
 removelabel "Wait,Link,Complete"
 closechat
@@ -81,12 +80,16 @@ else
 Taive "$URL" 2>&1 | tee "$TOME/bug.txt"
 fi
 echo > "$TOME/done"
-
-) & (
+) & 
 # Hiện tốc độ và check close
 jsdhhd=0
 while true; do
-[ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ] && ( bug "The order to cancel the process has been received."; break )
+if [ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ];then
+bug "The order to cancel the process has been received."
+break
+sleep 1
+exit 1
+fi
 if [ ! -e "$TOME/chat" ];then
 Chatbot "Calculate loading speed..."
 echo > $TOME/chat
@@ -103,7 +106,7 @@ chatbotedit "$(tail -c80 $TOME/bug.txt | awk '{print "Total: "$3" Loaded: "$5" S
 checksp="$(tail -c80 $TOME/bug.txt | awk '{print $13}')"
 fi
 done
-)
+
 
 # Tên file
 url1="$(ls)"
