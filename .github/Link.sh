@@ -35,7 +35,6 @@ Chatbot "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discuss
 addlabel "Error" &
 removelabel "Wait,Link,Complete"
 closechat
-sleep 5
 cancelrun
 exit 0
 }
