@@ -86,7 +86,7 @@ echo > "$TOME/done"
 # Hiện tốc độ và check close
 jsdhhd=0
 while true; do
-[ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ] && ( bug "The order to cancel the process has been received."; sleep 10 )
+[ "$(gh issue view $NUMBIE | grep -cm1 CLOSED)" == 1 ] && ( bug "The order to cancel the process has been received."; break )
 if [ ! -e "$TOME/chat" ];then
 Chatbot "Calculate loading speed..."
 echo > $TOME/chat
