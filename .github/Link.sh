@@ -25,9 +25,7 @@ addtitle(){ gh issue edit $NUMBIE --title "$1" >/dev/null; }
 chatbotedit(){ gh issue comment $NUMBIE --edit-last -b "$1" >/dev/null; }
 
 bug(){
-closechat "$1"
-closechat "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discussions)"
-addlabel "Error" & removelabel "Wait,Link,Complete"
+closechat "$1" & closechat "Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discussions)" & addlabel "Error" & removelabel "Wait,Link,Complete"
 sleep 10
 cancelrun
 exit 0
