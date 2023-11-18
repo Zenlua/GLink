@@ -10,9 +10,10 @@ user_agent=(
 User="${user_agent[RANDOM % ${#user_agent[@]}]}"
 
 # clear 
-#sudo rm -rf /usr/share/dotnet
-#sudo rm -rf /opt/ghc
-#sudo rm -rf /usr/local/share/boost
+sudo rm -rf /usr/share/dotnet
+sudo rm -rf /opt/ghc
+sudo rm -rf /usr/local/share/boost
+sudo killall GraphQL
 
 # function
 Xem () { curl -s -G -L -N -H "$User" --connect-timeout 20 "$1"; }
