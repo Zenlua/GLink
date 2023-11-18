@@ -55,7 +55,7 @@ fi
 if [ "$URL" ];then
 addlabel "Wait" & removelabel "Error"
 else
-bug "No link detected, stop process."
+bug 'No link detected, stop process. Note, please leave the `Url: ` if you remove the Url it will not receive the link.'
 fi
 
 # tao tm
