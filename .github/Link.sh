@@ -15,9 +15,9 @@ sudo rm -rf /opt/ghc
 sudo rm -rf /usr/local/share/boost
 
 # function
-Xem () { curl --dns-servers "1.1.1.1,8.8.8.8,8.8.4.4" -s -G -L -N -H "$User" --connect-timeout 20 "$1"; }
-Taive () { curl --dns-servers "1.1.1.1,8.8.8.8,8.8.4.4" -L -N -H "$User" --connect-timeout 20 -O "$1"; }
-Taive2 () { curl --dns-servers "1.1.1.1,8.8.8.8,8.8.4.4" -L -N -H "$User" --connect-timeout 20 "$1" -o "$2"; }
+Xem () { curl --dns-servers "1.1.1.1,8.8.8.8,8.8.4.4" -s -G -L -N -k -H "$User" --connect-timeout 20 "$1"; }
+Taive () { curl --dns-servers "1.1.1.1,8.8.8.8,8.8.4.4" -L -N -k -H "$User" --connect-timeout 20 -O "$1"; }
+Taive2 () { curl --dns-servers "1.1.1.1,8.8.8.8,8.8.4.4" -L -N -k -H "$User" --connect-timeout 20 "$1" -o "$2"; }
 checktc(){ grep -co 'dir="auto">.*'$1'' $TOME/1.ht 2>/dev/null; }
 
 # bot chat, thêm thẻ, đóng và chat, hủy chạy work, xoá thẻ 
