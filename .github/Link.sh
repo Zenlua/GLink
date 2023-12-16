@@ -114,7 +114,7 @@ if [ "$chsv" == 1 ];then
 curl --upload-file "$url1" https://transfer.sh > $TOME/1.json
 else
 url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
-eval "curl -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile' 2>&1 > $TOME/1.json"
+eval "curl --dns-servers "1.1.1.1,8.8.8.8,8.8.4.4" -L -N -k -H "$User" -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile' 2>&1 > $TOME/1.json"
 #LinkDow="$(eval "curl -X POST -F 'email=kakathic@gmail.com' -F 'key=xcjdJTOsvZJhgVV10B' -F 'file=@$url1' -F 'folder=821972' https://ul.mixdrop.ag/api" | jq -r .result.url)"
 fi
 echo > $TOME/bone
