@@ -70,7 +70,7 @@ megadl "$URL" 2>&1 | tee "$TOME/bug.txt"
 elif [ "$(echo "$URL" | grep -cm1 'sourceforge.net')" == 1 ];then
 mausourcef="$(echo "$URL" | cut -d '/' -f 5,7)"
 tensourcef="$(echo "$URL" | cut -d '/' -f 10)"
-Taive2 $(echo "${URL}?use_mirror=zenlayer&r=" | grep -om1 "https://.*.$mausourcef.*" | cut -d '"' -f1)" "$tensourcef" 2>&1 | tee "$TOME/bug.txt"
+Taive2 "$(echo "${URL}?use_mirror=zenlayer&r=" | grep -om1 "https://.*.$mausourcef.*" | cut -d '"' -f1)" "$tensourcef" 2>&1 | tee "$TOME/bug.txt"
 else
 Taive "$URL" 2>&1 | tee "$TOME/bug.txt"
 fi
