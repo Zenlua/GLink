@@ -22,7 +22,6 @@ body:
       description: After downloading it will upload to the server you have chose
       options:
         - Gofile
-        - Transfer
       default: 0
     validations:
       required: true
