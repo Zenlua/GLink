@@ -16,7 +16,6 @@ Url sample to get file
 
 1. Direct https://file.com/file.zip
 2. Mage.nz https://mega.nz/file/xxx#xxx
-3. Sourceforge.net https://sourceforge.net/x/download
 
 Instructions to get link, create a Github account
 
