@@ -1,4 +1,4 @@
-name: Link
+name: GLink
 on:
   workflow_dispatch: 
   issues:
@@ -21,4 +21,4 @@ jobs:
       - name: 'Start process'
         run: |
           # Kakathic         
-          . .github/Link.sh 2>&1 | tee -a log.txt
+          bash .github/Link.sh 2>&1 | tee -a log.txt
