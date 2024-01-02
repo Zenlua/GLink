@@ -1,6 +1,11 @@
 name: Link
 on:
   workflow_dispatch: 
+   inputs:
+      VERSION:
+        description: 'Enter url link'
+        required: false
+        default: ''
   issues:
     types:
       - opened
