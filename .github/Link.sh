@@ -36,11 +36,13 @@ exit 0
 # chat
 Chatbot 'The process can be canceled by pressing the `Close Issues` button, or view the running process 📱[Actions](https://github.com/Zelooooo/GLink/actions/runs/'$GITHUB_RUN_ID')'
 
+if [ -z "$URL" ];then
 # get 
 Xem "https://github.com/Zelooooo/GLink/issues/$NUMBIE" > $TOME/1.ht
 
 # get url
 URL="$(grep -m1 'dir="auto">Url:' $TOME/1.ht | grep -o 'Url:.*<' | sed 's|Url:<||' | cut -d '"' -f2)"
+fi
 
 # get sv
 if [ "$(checktc Transfer)" == 1 ];then
