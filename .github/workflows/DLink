@@ -1,0 +1,23 @@
+name: DLink
+on:
+  workflow_dispatch: 
+   inputs:
+      URL:
+        description: 'Enter url link'
+        required: false
+        default: ''
+permissions: write-all
+jobs:
+  build:
+    name: 'See progress'
+    if: github.repository == 'Zelooooo/GLink' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    env:
+      URL: ${{ inputs.URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: 'Start process'
+        run: |
+          # Kakathic         
+          bash .github/DLink.sh 2>&1 | tee -a log.txt
