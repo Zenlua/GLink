@@ -2,7 +2,7 @@ name: Link
 on:
   workflow_dispatch: 
    inputs:
-      VERSION:
+      URL:
         description: 'Enter url link'
         required: false
         default: ''
@@ -19,6 +19,7 @@ jobs:
     env:
       NUMBIE: ${{ github.event.issue.number }}
       GH_TOKEN: ${{ github.token }}
+      URL: ${{ inputs.URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
