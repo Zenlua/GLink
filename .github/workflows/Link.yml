@@ -1,4 +1,4 @@
-name: GLink
+name: Link
 on:
   workflow_dispatch: 
   issues:
