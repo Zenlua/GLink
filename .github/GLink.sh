@@ -90,6 +90,7 @@ eval "curl --dns-servers '1.1.1.1,8.8.8.8' -L -N -H '$User' -F 'file=@$url1' 'ht
 #LinkDow="$(eval "curl -X POST -F 'email=kakathic@gmail.com' -F 'key=xcjdJTOsvZJhgVV10B' -F 'file=@$url1' -F 'folder=821972' https://ul.mixdrop.ag/api" | jq -r .result.url)"
 fi
 
+cat $TOME/1.json | jq
 
 # link download 
 if [ "$(cat $TOME/1.json)" ];then
