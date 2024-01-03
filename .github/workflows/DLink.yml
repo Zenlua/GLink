@@ -10,7 +10,6 @@ permissions: write-all
 jobs:
   build:
     name: 'See progress'
-    if: github.repository == 'Zelooooo/GLink' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     env:
       URL: ${{ inputs.URL }}
