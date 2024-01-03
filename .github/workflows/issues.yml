@@ -1,8 +1,6 @@
 name: 'Closed issues'
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '59 23 * * *'
   issues:
     types:
       - opened
