@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
   - name: List completed
-    url: "https://github.com/Zelooooo/GLink/issues?q=is%3Aissue+is%3Aclosed+label%3AComplete"
+    url: "https://github.com/Zenlua/GLink/issues?q=is%3Aissue+is%3Aclosed+label%3AComplete"
     about: List of completed get links
   - name: List error
-    url: "https://github.com/Zelooooo/GLink/issues?q=is%3Aissue+is%3Aclosed+label%3AError"
+    url: "https://github.com/Zenlua/GLink/issues?q=is%3Aissue+is%3Aclosed+label%3AError"
     about: List of error get links
   - name: 💬 Discuss
-    url: https://github.com/Zelooooo/GLink/discussions
+    url: https://github.com/Zenlua/GLink/discussions
     about: Chat room, error reporting, suggestions.
