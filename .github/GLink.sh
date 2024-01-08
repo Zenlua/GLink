@@ -25,7 +25,7 @@ addtitle(){ gh issue edit $NUMBIE --title "$1" >/dev/null; }
 chatbotedit(){ gh issue comment $NUMBIE --edit-last -b "$1" >/dev/null; }
 
 bug(){
-Chatbot "$1 <br/><br/>Report bugs at: [Discussions](https://github.com/Zelooooo/GLink/discussions)" &
+Chatbot "$1 <br/><br/>Report bugs at: [Discussions](https://github.com/Zenlua/GLink/discussions)" &
 addlabel "Error" &
 removelabel "Wait,Link,Complete"
 closechat
@@ -34,10 +34,10 @@ exit 0
 }
 
 # chat
-Chatbot 'The process can be canceled by pressing the `Close Issues` button, or view the running process 📱[Actions](https://github.com/Zelooooo/GLink/actions/runs/'$GITHUB_RUN_ID')'
+Chatbot 'The process can be canceled by pressing the `Close Issues` button, or view the running process 📱[Actions](https://github.com/Zenlua/GLink/actions/runs/'$GITHUB_RUN_ID')'
 
 # get 
-Xem "https://github.com/Zelooooo/GLink/issues/$NUMBIE" > $TOME/1.ht
+Xem "https://github.com/Zenlua/GLink/issues/$NUMBIE" > $TOME/1.ht
 
 # get url
 URL="$(grep -m1 'dir="auto">Url:' $TOME/1.ht | grep -o 'Url:.*<' | sed 's|Url:<||' | cut -d '"' -f2)"
