@@ -40,8 +40,7 @@ Chatbot 'The process can be canceled by pressing the `Close Issues` button, or v
 Xem "https://github.com/Zenlua/GLink/issues/$NUMBIE" > $TOME/1.ht
 
 # get url
-URL="$(grep -m1 'dir="auto">Url:' $TOME/1.ht | grep -o 'Url:.*<' | sed 's|Url:<||' | cut -d '"' -f2)"
-
+URL="$(grep -m1 'markdown-title">Url:' $TOME/1.ht | grep -o 'Url:.*<' | sed -e 's|Url:<||' -e 's|Url:\ ||' -e 's|<||')"
 # get sv
 if [ "$(checktc Transfer)" == 1 ];then
 chsv=1
