@@ -1,21 +1,12 @@
 name: Get Link
 description: See details
-title: "Link Speed"
+title: "Url: "
 labels: ["Link"]
 body:
   - type: markdown
     attributes:
       value: |
         Just enter the link and it will download and upload to another server.
-  - type: input
-    attributes:
-      label: Link input
-      description: |
-        Input link `Url: http://file_com/path`
-      placeholder: "Url: http://file.com/kk.zip"
-      value: "Url: "
-    validations:
-      required: true
   - type: dropdown
     attributes:
       label: Upload server
