@@ -6,8 +6,8 @@ User="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 
 # function
 Xem () { curl -s -G -L -N -H "$User" "$1"; }
-Taive () { curl -L -N -H "$User" -O "$1"; }
-Taive2 () { curl -L -N -H "$User" "$1" -o "$2"; }
+Taive () { curl --dns-servers '1.1.1.1' -L -N -H "$User" -O "$1"; }
+Taive2 () { curl --dns-servers '1.1.1.1' -L -N -H "$User" "$1" -o "$2"; }
 
 # tao tm
 mkdir -p Up
