@@ -35,7 +35,24 @@ echo "- Name: $url1"
 if [ "$chsv" == 1 ];then
 curl --upload-file "$url1" https://transfer.sh > $TOME/1.json
 else
+(
 url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
-eval "curl --dns-servers '1.1.1.1,8.8.8.8' -L -N -H '$User' -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile'" | jq
+eval "curl --dns-servers '1.1.1.1' -L -N -H '$User' -F 'file=@$url1' 'https://$url2.gofile.io/uploadFile'" | jq
+echo > $TOME/tc.log
+) & (
+res_json=$(curl -s -X GET "https://devuploads.com/api/upload/server?key=47395exzbd07av0fozl8h")
+sess_id=$(echo "$res_json" | grep -o '"sess_id":"[^"]*"' | awk -F ':' '{print $2}' | tr -d '"')
+server_url=$(echo $res_json | sed -n 's/.*"result":"\([^"]*\).*/\1/p')
+curl --dns-servers '1.1.1.1' -s -X POST -F "sess_id=$sess_id" -F "utype=reg" -F "file=@$url1" "$server_url" | jq
+)
+
+while true; do
+if [ -e $TOME/tc.log ];then
+break
+else
+sleep 1
+fi
+done
+
 #LinkDow="$(eval "curl -X POST -F 'email=kakathic@gmail.com' -F 'key=xcjdJTOsvZJhgVV10B' -F 'file=@$url1' -F 'folder=821972' https://ul.mixdrop.ag/api" | jq -r .result.url)"
 fi
