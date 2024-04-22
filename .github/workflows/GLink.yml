@@ -9,7 +9,6 @@ permissions: write-all
 jobs:
   build:
     name: 'See progress'
-    if: github.repository == 'Zelooooo/GLink' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     env:
       NUMBIE: ${{ github.event.issue.number }}
@@ -21,7 +20,7 @@ jobs:
       - name: 'Start process'
         run: |
           # Kakathic         
-          #bash .github/GLink.sh 2>&1 | tee -a log.txt
+          # bash .github/GLink.sh 2>&1 | tee -a log.txt
           mkdir -p test
           mount -r .github/mi_ext.img test
           ls -1 test
