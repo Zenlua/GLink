@@ -22,7 +22,7 @@ jobs:
           # Kakathic         
           # bash .github/GLink.sh 2>&1 | tee -a log.txt
           mkdir -p test
-          mount -r -o loop .github/mi_ext.img test
+          sudo -c mount -r -o loop .github/mi_ext.img test
           ls -1 test
           
           
