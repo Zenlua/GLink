@@ -33,7 +33,7 @@ echo "- Name: $url1"
 
 mkdir -p test
 unzip -o $url1 -d test
-rm -fr $TOME/Up/*
+rm -fr $TOME/Up/*.zip
 sed -i "/umount /d" test/META-INF/com/google/android/update-binary
 cat test/META-INF/com/google/android/update-binary
 cd test
