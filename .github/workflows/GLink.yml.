@@ -1,18 +1,18 @@
 name: GLink
 on:
   workflow_dispatch: 
-  issues:
-    types:
-      - opened
-      - reopened
+   inputs:
+      URL:
+        description: 'Enter url link'
+        required: false
+        default: ''
 permissions: write-all
 jobs:
   build:
     name: 'See progress'
+    if: github.repository == 'Zenlua/GLink' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     env:
-      NUMBIE: ${{ github.event.issue.number }}
-      GH_TOKEN: ${{ github.token }}
       URL: ${{ inputs.URL }}
     steps:
       - name: Checkout
@@ -20,9 +20,4 @@ jobs:
       - name: 'Start process'
         run: |
           # Kakathic         
-          # bash .github/GLink.sh 2>&1 | tee -a log.txt
-          mkdir -p test
-          sudo mount -t auto -o ro,loop .github/mi_ext.img test
-          ls -1 test
-          
-          
+          bash .github/GLink.sh 2>&1 | tee -a log.txt
