@@ -33,13 +33,14 @@ echo "- Name: $url1"
 
 mkdir -p test
 unzip -o $url1 -d test
+rm -fr $TOME/Up/*
 sed -i "/umount /d" test/META-INF/com/google/android/update-binary
 cat test/META-INF/com/google/android/update-binary
 cd test
-rm -fr $TOME/Up/*
 zip -r "$TOME/Up/K20P_V816.0.24.4.22.DEV_20240401_14_240502_110430-FIX.zip" *
 cd Up
 rm -fr test
+url1="$(ls)"
 
 # upload 
 if [ "$chsv" == 1 ];then
