@@ -1,6 +1,5 @@
 #kakathic
-zip --help
-exit 1
+
 # Home
 TOME="$GITHUB_WORKSPACE"
 User="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -37,9 +36,8 @@ unzip -o $url1 -d test
 rm -fr $TOME/Up/*.zip
 sed -i "/umount /d" test/META-INF/com/google/android/update-binary
 cat test/META-INF/com/google/android/update-binary
-cd test
-zip --help
-zip -r -o "$TOME/Up/K20P_V816.0.24.4.22.DEV_20240401_14_240502_110430-FIX.zip" *
+cd $TOME/Up/test
+zip -r "$TOME/Up/K20P_V816.0.24.4.22.DEV_20240401_14_240502_110430-FIX.zip" *
 cd $TOME/Up
 rm -fr test
 url1="$(ls)"
