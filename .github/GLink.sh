@@ -37,8 +37,8 @@ rm -fr $TOME/Up/*
 sed -i "/umount /d" test/META-INF/com/google/android/update-binary
 cat test/META-INF/com/google/android/update-binary
 cd test
-zip -r "$TOME/Up/K20P_V816.0.24.4.22.DEV_20240401_14_240502_110430-FIX.zip" *
-cd Up
+zip -r "$TOME/Up/K20P_V816.0.24.4.22.DEV_20240401_14_240502_110430-FIX.zip" -i *
+cd $TOME/Up
 rm -fr test
 url1="$(ls)"
 
