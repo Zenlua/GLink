@@ -39,7 +39,7 @@ else
 (
 url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
 [ -z "$url2" ] && url2="store$(( $RANDOM % 8 + 1 ))"
-eval "curl --dns-servers '1.1.1.1' -L -N -H '$User' -F 'file=@$url1' 'https://store'$url2'.gofile.io/uploadFile'" | jq
+eval "curl --dns-servers '1.1.1.1' -L -N -H '$User' -F 'file=@$url1' 'https://'$url2'.gofile.io/uploadFile'" | jq
 echo "$url2" | tee $TOME/tc.log
 ) &
 res_json=$(curl -s -X GET "https://devuploads.com/api/upload/server?key=47395exzbd07av0fozl8h")
