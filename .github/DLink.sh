@@ -3,6 +3,7 @@
 # Home
 TOME="$GITHUB_WORKSPACE"
 User="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+echo -e "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee /etc/resolv.conf
 
 # function
 Xem () { curl -s -G -L -N -H "$User" "$1"; }
