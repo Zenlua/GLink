@@ -28,6 +28,8 @@ else
 Taive "$URL"
 fi
 
+env
+
 # Tên file
 url1="$(ls)"
 echo "- Name: $url1"
