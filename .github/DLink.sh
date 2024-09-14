@@ -39,13 +39,13 @@ if [ "$chsv" == 1 ];then
 curl --upload-file "$url1" https://transfer.sh > $TOME/1.json
 else
 
-url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.server)"
+url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.servers[0].name)"
 [ -z "$url2" ] && url2="store$(( $RANDOM % 8 + 1 ))"
 [ "$url2" == "null" ] && url2="store$(( $RANDOM % 8 + 1 ))"
 eval "curl --dns-servers '1.1.1.1' -L -N -H '$User' -F 'file=@$url1' 'https://'$url2'.gofile.io/uploadFile'" | jq
 echo "$url2" | tee $TOME/tc.log
 
-if [ "$GITHUB_REPOSITORY" == "Zenlua/GLink" ];then
+if [ "$GITHUB_REPOSITORY" != "Zenlua/GLink" ];then
 res_json=$(curl -s -X GET "https://devuploads.com/api/upload/server?key=47395exzbd07av0fozl8h")
 sess_id=$(echo "$res_json" | grep -o '"sess_id":"[^"]*"' | awk -F ':' '{print $2}' | tr -d '"')
 server_url=$(echo $res_json | sed -n 's/.*"result":"\([^"]*\).*/\1/p')
