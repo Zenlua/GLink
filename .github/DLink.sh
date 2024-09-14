@@ -38,7 +38,7 @@ curl --upload-file "$url1" https://transfer.sh > $TOME/1.json
 else
 
 url2="$(curl -s https://api.gofile.io/getServer | jq -r .data.servers[0].name)"
-echo "$url2"
+echo "1 $url2"
 [ -z "$url2" ] && url2="store$(( $RANDOM % 8 + 1 ))"
 [ "$url2" == "null" ] && url2="store$(( $RANDOM % 8 + 1 ))"
 eval "curl --dns-servers '1.1.1.1' -L -N -H '$User' -F 'file=@$url1' 'https://'$url2'.gofile.io/uploadFile'" | jq
