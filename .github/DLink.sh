@@ -41,6 +41,8 @@ url2="$(curl -s https://api.gofile.io/servers | jq -r .data.servers[0].name)"
 eval "curl --dns-servers '1.1.1.1' -L -N -H '$User' -F 'file=@$url1' 'https://'$url2'.gofile.io/contents/uploadfile'" | jq
 echo "$url2" | tee $TOME/tc.log
 
+exit
+
 if [ "$GITHUB_REPOSITORY" == "Zenlua/GLink" ];then
 res_json=$(curl -s -X GET "https://devuploads.com/api/upload/server?key=47395exzbd07av0fozl8h")
 sess_id=$(echo "$res_json" | grep -o '"sess_id":"[^"]*"' | awk -F ':' '{print $2}' | tr -d '"')
@@ -60,4 +62,8 @@ done
 #LinkDow="$(eval "curl -X POST -F 'email=kakathic@gmail.com' -F 'key=xcjdJTOsvZJhgVV10B' -F 'file=@$url1' -F 'folder=821972' https://ul.mixdrop.ag/api" | jq -r .result.url)"
 fi
 
+echo
+echo
+echo
+echo
 env
