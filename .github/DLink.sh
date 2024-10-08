@@ -41,9 +41,7 @@ url2="$(curl -s https://api.gofile.io/servers | jq -r .data.servers[0].name)"
 eval "curl --dns-servers '1.1.1.1' -L -N -H '$User' -F 'file=@$url1' 'https://'$url2'.gofile.io/contents/uploadfile'" | jq
 echo "$url2" | tee $TOME/tc.log
 
-exit
-
-if [ "$GITHUB_REPOSITORY" == "Zenlua/GLink" ];then
+if [ "$GITHUB_REPOSITORY" == "Zenlua/GLink" ] && [ "$NUT" == 'false' ];then
 res_json=$(curl -s -X GET "https://devuploads.com/api/upload/server?key=47395exzbd07av0fozl8h")
 sess_id=$(echo "$res_json" | grep -o '"sess_id":"[^"]*"' | awk -F ':' '{print $2}' | tr -d '"')
 server_url=$(echo $res_json | sed -n 's/.*"result":"\([^"]*\).*/\1/p')
