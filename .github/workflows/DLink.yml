@@ -6,6 +6,10 @@ on:
         description: 'Enter url link'
         required: false
         default: ''
+      NUT:
+        description: 'Turn off upload dev'
+        required: false
+        type: boolean
 permissions: write-all
 jobs:
   build:
@@ -14,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       URL: ${{ inputs.URL }}
+      NUT: ${{ inputs.NUT }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
