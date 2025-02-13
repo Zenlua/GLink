@@ -7,8 +7,8 @@ echo -e "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee /etc/resolv.conf
 
 # function
 Xem () { curl -s -G -L -N -H "$User" "$1"; }
-Taive () { curl --dns-servers '1.1.1.1' -L -N -H "$User" -O "$1"; }
-Taive2 () { curl --dns-servers '1.1.1.1' -L -N -H "$User" "$1" -o "$2"; }
+Taive () { curl -L -N -H "$User" -O "$1"; }
+Taive2 () { curl -L -N -H "$User" "$1" -o "$2"; }
 
 # tao tm
 mkdir -p Up
@@ -38,14 +38,14 @@ curl --upload-file "$url1" https://transfer.sh > $TOME/1.json
 else
 
 url2="$(curl -s https://api.gofile.io/servers | jq -r .data.servers[0].name)"
-eval "curl --dns-servers '1.1.1.1' -L -N -H '$User' -F 'file=@$url1' 'https://'$url2'.gofile.io/contents/uploadfile'" | jq
+eval "curl -L -N -H '$User' -F 'file=@$url1' 'https://'$url2'.gofile.io/contents/uploadfile'" | jq
 echo "$url2" | tee $TOME/tc.log
 
 if [ "$GITHUB_REPOSITORY" == "Zenlua/GLink" ] && [ "$NUT" == 'false' ];then
 res_json=$(curl -s -X GET "https://devuploads.com/api/upload/server?key=47395exzbd07av0fozl8h")
 sess_id=$(echo "$res_json" | grep -o '"sess_id":"[^"]*"' | awk -F ':' '{print $2}' | tr -d '"')
 server_url=$(echo $res_json | sed -n 's/.*"result":"\([^"]*\).*/\1/p')
-curl --dns-servers '1.1.1.1' -s -X POST -F "sess_id=$sess_id" -F "utype=reg" -F "file=@$url1" "$server_url" | tee s.json
+curl -s -X POST -F "sess_id=$sess_id" -F "utype=reg" -F "file=@$url1" "$server_url" | tee s.json
 echo "https://devuploads.com/$(cat s.json | jq -r .[].file_code)"
 fi
 
