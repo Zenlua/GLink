@@ -10,6 +10,7 @@ on:
         description: 'Turn off upload dev'
         required: false
         type: boolean
+        default: true
 permissions: write-all
 jobs:
   build:
