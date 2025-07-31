@@ -4,7 +4,7 @@ on:
    inputs:
       URL:
         description: 'Enter File'
-        required: false
+        required: true
         default: ''
 permissions: write-all
 jobs:
