@@ -3,9 +3,7 @@ User="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 echo -e "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee /etc/resolv.conf
 
 Taive2 () { curl -L -N "$1" -o "$2"; }
-curl -L https://github.com/althafvly/AmlogicKitchen/archive/refs/heads/master.zip \
--o mod.zip
-unzip -qoj mod.zip */bin/* -d bin
+unzip -qoj .github/bin.zip bin/* -d bin
 PATH=$TOME/bin:$PATH
 TOME="$GITHUB_WORKSPACE"
 MOME="$TOME/.github"
