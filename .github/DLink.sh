@@ -34,7 +34,7 @@ echo "- Name: $url1"
 
 # upload 
 if [ "$chsv" == 1 ];then
-curl --upload-file "$url1" https://transfer.sh > $TOME/1.json
+curl -T "file_name.txt" -u :829e6679-9f44-4e4e-8bdd-ffc3b19ac979 https://pixeldrain.com/api/file/ > $TOME/1.json
 else
 
 url2="$(curl -s https://api.gofile.io/servers | jq -r .data.servers[0].name)"
