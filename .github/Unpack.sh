@@ -1,4 +1,5 @@
 # Kakathic
+Taive2 () { curl -L -N "$1" -o "$2"; }
 curl -sL https://github.com/althafvly/AmlogicKitchen/archive/refs/heads/master.zip \
 -o mod.zip
 unzip -qoj mod.zip */bin/* -d bin
