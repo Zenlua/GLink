@@ -4,12 +4,12 @@ echo -e "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee /etc/resolv.conf
 
 Taive2 () { curl -L -N "$1" -o "$2"; }
 unzip -qoj .github/bin.zip bin/* -d bin
-PATH=$TOME/bin:$PATH
-TOME="$GITHUB_WORKSPACE"
+PATH=bin:$PATH
+
+TOME="$(pwd)"
 MOME="$TOME/.github"
 
 ls bin
-
 gettype -i $TOME/.github/mi_ext.img
 
 Taiveeu(){
