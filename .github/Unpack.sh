@@ -46,9 +46,11 @@ pathzip="$(find $TOME/vip -type f -name 'MiuiHome.apk')"
 zip -jr file.zip $pathzip
 
 # uploaded
+if [ -f $TOME/file.zip ];then
 url2="$(curl -s https://api.gofile.io/servers | jq -r .data.servers[0].name)"
 eval "curl -L -N -H '$User' -F 'file=@file.zip' 'https://'$url2'.gofile.io/contents/uploadfile'" | jq
 echo "$url2"
+fi
 
 ls
 echo
