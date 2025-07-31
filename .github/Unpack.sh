@@ -26,7 +26,7 @@ simg2img $listsup "super.img"
 rm -fr $TOME/imgs/*
 lpunpack "$TOME/super.img" "$TOME/imgs" 
 rm -fr $TOME/super.img
-mkdir -p vip
+mkdir -p vip file
 
 for vv in $TOME/imgs/*; do
 dangtype="$(gettype -i $vv)"
@@ -42,8 +42,14 @@ fi
 rm -f $vv
 done
 
-pathzip="$(find $TOME/vip -type f -name 'MiuiHome.apk')"
-zip -jr file.zip $pathzip
+for bb in $FFile; do
+pathzip="$(find $TOME/vip -type f -name "$bb")"
+cp -rf "$pathzip" file
+done
+
+cd file
+zip -jr $TOME/file.zip *
+cd $TOME
 
 # uploaded
 if [ -f $TOME/file.zip ];then
