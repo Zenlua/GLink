@@ -20,4 +20,4 @@ jobs:
       - name: 'Start process'
         run: |
           # Kakathic         
-          bash .github/unpack.sh 2>&1 | tee -a log.txt
+          bash .github/Unpack.sh 2>&1 | tee -a log.txt
