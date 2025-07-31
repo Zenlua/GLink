@@ -3,9 +3,11 @@ curl -L https://github.com/althafvly/AmlogicKitchen/archive/refs/heads/master.zi
 -o mod.zip
 unzip -qoj mod.zip */bin/* -d bin
 PATH=bin:$PATH
+TOME="$GITHUB_WORKSPACE"
 ls bin
 
-gettype ./.github/mi_ext.img
-gettype -h
+gettype -i $TOME/.github/mi_ext.img
+
+echo
 env
 
