@@ -33,12 +33,12 @@ listsup="$(ls $TOME/imgs/super.img.* | sort -n -t . -k 3)"
 rm -fr file_rom.zip
 simg2img $listsup "super.img"
 rm -fr $TOME/imgs/*
-lpunpack -p product_a "$TOME/super.img" "$TOME/imgs" 
+lpunpack "$TOME/super.img" "$TOME/imgs" 
 rm -fr $TOME/super.img
 mkdir -p vip file
 echo
 
-for vv in $TOME/imgs/*.img; do
+for vv in $TOME/imgs/*_a.img; do
 dangtype="$(gettype -i $vv)"
 echo "${vv##*/}: $dangtype"
 if [ "$dangtype" == 'erofs' ];then
