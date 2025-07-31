@@ -18,7 +18,7 @@ tensourcef="$(echo "$1" | cut -d '/' -f 10)"
 Taive2 "${1}?use_mirror=zenlayer&r=" "file_rom.zip" 2>&1
 }
 
-Taiveeu 'https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/HyperOS-STABLE-RELEASES/HyperOS2.0/xiaomi.eu_LISA_OS2.0.10.0.UKOCNXM_14.zip/download'
+Taiveeu "$URL"
 unzip -qoj file_rom.zip images/super.img.* -d imgs
 listsup="$(ls $TOME/imgs/super.img.* | sort -n -t . -k 3)"
 rm -fr file_rom.zip
