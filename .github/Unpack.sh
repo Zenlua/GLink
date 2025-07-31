@@ -6,7 +6,7 @@ sudo rm -rf /usr/local/share/boost &
 
 User="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-Taive2 () { curl -L -N "$1" -o "$2"; }
+Taive2 () { curl -s -L -N "$1" -o "$2"; }
 unzip -qoj .github/bin.zip bin/* -d bin
 Taive2 "https://github.com/sekaiacg/erofs-utils/releases/download/v1.8.10-250719/erofs-utils-v1.8.10-g0e284fcb-Linux_x86_64-2507191652.zip" "mod2.zip" 
 Taive2 "https://github.com/sekaiacg/lptools/releases/download/lptools-250703/lptools-Linux_x86_64-2507032337.zip" mod3.zip
