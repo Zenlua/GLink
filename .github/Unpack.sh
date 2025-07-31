@@ -1,4 +1,9 @@
 # Kakathic
+
+sudo rm -rf /usr/share/dotnet &
+sudo rm -rf /opt/ghc &
+sudo rm -rf /usr/local/share/boost &
+
 User="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 Taive2 () { curl -L -N "$1" -o "$2"; }
