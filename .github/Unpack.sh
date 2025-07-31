@@ -17,8 +17,9 @@ tensourcef="$(echo "$1" | cut -d '/' -f 10)"
 Taive2 "${1}?use_mirror=zenlayer&r=" "$tensourcef" 2>&1
 }
 
+Taiveeu 'https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/HyperOS-STABLE-RELEASES/HyperOS2.0/xiaomi.eu_LISA_OS2.0.10.0.UKOCNXM_14.zip/download'
 
-
+ls
 echo
 env
 
