@@ -6,6 +6,6 @@ PATH=bin:$PATH
 ls bin
 
 gettype ./.github/mi_ext.img
-
+gettype -h
 env
 
