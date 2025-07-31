@@ -45,7 +45,9 @@ eval "curl -L -N -H '$User' -F 'file=@$url1' 'https://'$url2'.gofile.io/contents
 echo "$url2" | tee $TOME/tc.log
 fi
 
-curl -T "$url1" -u :829e6679-9f44-4e4e-8bdd-ffc3b19ac979 https://pixeldrain.com/api/file/
+echo
+echo
+curl -T "$url1" -u :829e6679-9f44-4e4e-8bdd-ffc3b19ac979 https://pixeldrain.com/api/file/ | jq -r .id | awk '{print "https://pixeldrain.com/u/"$1}'
 
 while true; do
 if [ -e $TOME/tc.log ];then
