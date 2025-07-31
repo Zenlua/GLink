@@ -36,10 +36,10 @@ echo
 for vv in $TOME/imgs/*.img; do
 dangtype="$(gettype -i $vv)"
 echo "${vv##*/}: $dangtype"
-if [[ "$dangtype" == 'erofs' ]];then
-extract.erofs -i "$vv" -o "$TOME/vip" -x &>/dev/null
-elif [[ "$dangtype" == 'ext' ]];then
-python3 $TOME/bin/imgextractor.py "$vv" $TOME/vip &>/dev/null
+if [ "$dangtype" == 'erofs' ];then
+extract.erofs -i "$vv" -o "$TOME/vip"
+elif [ "$dangtype" == 'ext' ];then
+python3 $TOME/bin/imgextractor.py "$vv" $TOME/vip
 else
 echo "Lỗi file không biết: $dangtype"
 exit 1
