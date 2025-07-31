@@ -68,7 +68,7 @@ eval "curl -L -N -H '$User' -F 'file=@file.zip' 'https://'$url2'.gofile.io/conte
 echo "$url2"
 fi
 
-ls
+ls vip/*
 echo
-env
+
 
