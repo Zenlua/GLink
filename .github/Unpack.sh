@@ -34,7 +34,7 @@ for vv in $TOME/imgs/*; do
 dangtype="$(gettype -i $vv)"
 echo "${vv##*/}: $dangtype"
 if [[ "$dangtype" == 'erofs' ]];then
-extract.erofs -i "$vv" -o "$TOME/vip"
+extract.erofs -i "$vv" -o "$TOME/vip" -x
 elif [[ "$dangtype" == 'ext' ]];then
 python3 $TOME/bin/imgextractor.py "$vv" $TOME/vip
 else
