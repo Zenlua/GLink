@@ -2,7 +2,7 @@
 User="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 echo -e "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee /etc/resolv.conf
 
-Taive2 () { curl -s -L -N "$1" -o "$2"; }
+Taive2 () { curl -L -N "$1" -o "$2"; }
 curl -sL https://github.com/althafvly/AmlogicKitchen/archive/refs/heads/master.zip \
 -o mod.zip
 unzip -qoj mod.zip */bin/* -d bin
