@@ -1,4 +1,8 @@
-# Get Link [![DLink](https://github.com/Zenlua/GLink/actions/workflows/DLink.yml/badge.svg)](https://github.com/Zenlua/GLink/actions/workflows/DLink.yml)
+# Get Link
+
+- [![DLink](https://github.com/Zenlua/GLink/actions/workflows/DLink.yml/badge.svg)](https://github.com/Zenlua/GLink/actions/workflows/DLink.yml)
+
+- [![Unpack](https://github.com/Zenlua/GLink/actions/workflows/Unpack.yml/badge.svg?branch=main)](https://github.com/Zenlua/GLink/actions/workflows/Unpack.yml)
 
 See notes when getting link
 
