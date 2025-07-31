@@ -3,7 +3,7 @@ on:
   workflow_dispatch: 
    inputs:
       URL:
-        description: 'Enter url link'
+        description: 'Enter File'
         required: false
         default: ''
 permissions: write-all
@@ -13,7 +13,7 @@ jobs:
     if: github.repository == 'Zenlua/GLink' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     env:
-      URL: ${{ inputs.URL }}
+      FFile: ${{ inputs.URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
