@@ -1,4 +1,4 @@
-name: GLink
+name: Unpack
 on:
   workflow_dispatch: 
    inputs:
@@ -20,4 +20,4 @@ jobs:
       - name: 'Start process'
         run: |
           # Kakathic         
-          bash .github/GLink.sh 2>&1 | tee -a log.txt
+          bash .github/unpack.sh 2>&1 | tee -a log.txt
