@@ -5,6 +5,7 @@ unzip -qoj mod.zip */bin/* -d bin
 PATH=bin:$PATH
 ls bin
 
-gettype .github/mi_ext.img
+gettype ./.github/mi_ext.img
 
+env
 
