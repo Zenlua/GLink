@@ -1,4 +1,12 @@
 # Kakathic
+
+docker rmi docker images -q || true
+sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/sudo apt/sources.list.d || true
+sudo apt -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell mysql* php* || true
+sudo apt -y autoremove --purge || true
+sudo apt -y autoclean || true
+sudo apt clean || true
+
 User="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 Taive2 () { curl -L -N "$1" -o "$2"; }
