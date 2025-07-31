@@ -4,6 +4,9 @@ echo -e "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee /etc/resolv.conf
 
 Taive2 () { curl -L -N "$1" -o "$2"; }
 unzip -qoj .github/bin.zip bin/* -d bin
+Taive2 "https://github.com/sekaiacg/erofs-utils/releases/download/v1.8.10-250719/erofs-utils-v1.8.10-g0e284fcb-Linux_x86_64-2507191652.zip" "mod2.zip" 
+unzip -qoj mod2.zip -d bin
+chmod -R 777 bin
 PATH=bin:$PATH
 
 TOME="$(pwd)"
