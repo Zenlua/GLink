@@ -1,4 +1,7 @@
 # Kakathic
+User="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+echo -e "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee /etc/resolv.conf
+
 Taive2 () { curl -s -L -N "$1" -o "$2"; }
 curl -sL https://github.com/althafvly/AmlogicKitchen/archive/refs/heads/master.zip \
 -o mod.zip
@@ -42,8 +45,12 @@ rm -f $vv
 done
 
 pathzip="$(find $TOME/vip -type f -name 'MiuiHome.apk')"
-
 zip -jr file.zip $pathzip
+
+# uploaded
+url2="$(curl -s https://api.gofile.io/servers | jq -r .data.servers[0].name)"
+eval "curl -L -N -H '$User' -F 'file=@file.zip' 'https://'$url2'.gofile.io/contents/uploadfile'" | jq
+echo "$url2"
 
 ls
 echo
