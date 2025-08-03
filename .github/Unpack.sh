@@ -43,7 +43,7 @@ for vv in $TOME/imgs/*_a.img; do
 dangtype="$(gettype -i $vv)"
 echo "${vv##*/}: $dangtype"
 if [ "$dangtype" == 'erofs' ];then
-extract.erofs -i "$vv" -o "$TOME/vip" -x
+extract.erofs -i "$vv" -o "$TOME/vip" -x &>/dev/null
 elif [ "$dangtype" == 'ext' ];then
 python3 $TOME/bin/imgextractor.py "$vv" $TOME/vip
 else
@@ -52,8 +52,6 @@ exit 1
 fi
 rm -f $vv
 done
-
-ls -lh vip
 
 for bb in $FFile; do
 pathzip="$(find $TOME/vip -type f -name "$bb")"
