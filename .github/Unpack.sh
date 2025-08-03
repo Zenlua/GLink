@@ -31,7 +31,7 @@ listsup="$(ls $TOME/imgs/super.img.* | sort -n -t . -k 3)"
 rm -fr file_rom.zip
 simg2img $listsup "super.img"
 rm -fr $TOME/imgs/*
-sudo lpunpack "$TOME/super.img" "$TOME/imgs" 
+lpunpack "$TOME/super.img" "$TOME/imgs" 
 rm -fr $TOME/super.img
 mkdir -p vip file
 echo
@@ -41,9 +41,9 @@ for vv in $TOME/imgs/*_a.img; do
 dangtype="$(gettype -i $vv)"
 echo "${vv##*/}: $dangtype"
 if [ "$dangtype" == 'erofs' ];then
-sudo extract.erofs -i "$vv" -o "$TOME/vip"
+extract.erofs -i "$vv" -o "$TOME/vip"
 elif [ "$dangtype" == 'ext' ];then
-sudo python3 $TOME/bin/imgextractor.py "$vv" $TOME/vip
+python3 $TOME/bin/imgextractor.py "$vv" $TOME/vip
 else
 echo "Lỗi file không biết: $dangtype"
 exit 1
