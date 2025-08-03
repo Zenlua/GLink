@@ -2,7 +2,7 @@ name: Unpack
 on:
   workflow_dispatch: 
    inputs:
-      URL:
+      URLs:
         description: 'Link Rom'
         required: true
         default: ''
@@ -17,7 +17,7 @@ jobs:
     if: github.repository == 'Zenlua/GLink' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     env:
-      URL: ${{ inputs.URL }}
+      URL: ${{ inputs.URLs }}
       FFile: ${{ inputs.FFILE }}
     steps:
       - name: Checkout
