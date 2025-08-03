@@ -19,7 +19,6 @@ ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
 TOME="$ROOT_DIR"
 MOME="$TOME/.github"
-ls bin
 
 Taiveeu(){
 mausourcef="$(echo "$1" | cut -d '/' -f 5,7)"
