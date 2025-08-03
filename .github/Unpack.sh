@@ -14,9 +14,10 @@ unzip -qoj .github/bin.zip bin/* -d bin
 #unzip -qoj mod3.zip -d bin
 chmod -R 777 bin
 export PATH=bin:$PATH
-export LD_LIBRARY_PATH=bin:$LD_LIBRARY_PATH
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+[[ ":$LD_LIBRARY_PATH:" != *":$ROOT_DIR/bin:"* ]] && export LD_LIBRARY_PATH="$ROOT_DIR/bin${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 
-TOME="$(pwd)"
+TOME="$ROOT_DIR"
 MOME="$TOME/.github"
 ls bin
 
@@ -42,7 +43,7 @@ for vv in $TOME/imgs/*_a.img; do
 dangtype="$(gettype -i $vv)"
 echo "${vv##*/}: $dangtype"
 if [ "$dangtype" == 'erofs' ];then
-extract.erofs -i "$vv" -o "$TOME/vip"
+bin/extract.erofs -i "$vv" -o "$TOME/vip"
 elif [ "$dangtype" == 'ext' ];then
 python3 $TOME/bin/imgextractor.py "$vv" $TOME/vip
 else
@@ -51,8 +52,6 @@ exit 1
 fi
 rm -f $vv
 done
-
-find $TOME/vip -type f
 
 for bb in $FFile; do
 pathzip="$(find $TOME/vip -type f -name "$bb")"
