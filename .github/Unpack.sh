@@ -45,7 +45,7 @@ echo "${vv##*/}: $dangtype"
 if [ "$dangtype" == 'erofs' ];then
 extract.erofs -i "$vv" -o "$TOME/vip" -x &>/dev/null
 elif [ "$dangtype" == 'ext' ];then
-sudo python3 $TOME/bin/imgextractor.py "$vv" "$TOME/vip"
+sudo python3 $TOME/bin/imgextractor.py "$vv" "$TOME/vip" &>/dev/null
 else
 echo "Lỗi file không biết: $dangtype"
 exit 1
@@ -54,7 +54,7 @@ rm -f $vv
 done
 
 for bb in $FFile; do
-pathzip="$(find $TOME/vip -type f -name "$bb")"
+pathzip="$(sudo find $TOME/vip -type f -name "$bb")"
 cp -rf "$pathzip" file
 done
 
