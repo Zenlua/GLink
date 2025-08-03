@@ -13,7 +13,8 @@ unzip -qoj .github/bin.zip bin/* -d bin
 #unzip -qoj mod2.zip -d bin
 #unzip -qoj mod3.zip -d bin
 chmod -R 777 bin
-PATH=bin:$PATH
+export PATH=bin:$PATH
+export LD_LIBRARY_PATH=bin:$LD_LIBRARY_PATH
 
 TOME="$(pwd)"
 MOME="$TOME/.github"
