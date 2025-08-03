@@ -33,7 +33,7 @@ simg2img $listsup "super.img"
 rm -fr $TOME/imgs/*
 lpunpack "$TOME/super.img" "$TOME/imgs" 
 rm -fr $TOME/super.img
-mkdir -p vip file
+mkdir -p $TOME/vip $TOME/file
 echo
 ls -lh "$TOME/imgs"
 
@@ -50,6 +50,8 @@ exit 1
 fi
 rm -f $vv
 done
+
+find $TOME/vip -type f
 
 for bb in $FFile; do
 pathzip="$(find $TOME/vip -type f -name "$bb")"
