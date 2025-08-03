@@ -33,7 +33,7 @@ listsup="$(ls $TOME/imgs/super.img.* | sort -n -t . -k 3)"
 rm -fr file_rom.zip
 simg2img $listsup "super.img"
 rm -fr $TOME/imgs/*
-lpunpack "$TOME/super.img" "$TOME/imgs" 
+lpunpack "$TOME/super.img" "$TOME/imgs" &>/dev/null
 rm -fr $TOME/super.img
 mkdir -p $TOME/vip $TOME/file
 echo
@@ -70,5 +70,5 @@ echo "$url2"
 fi
 
 echo
-
+ls vip
 
