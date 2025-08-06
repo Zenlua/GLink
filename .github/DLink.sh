@@ -7,8 +7,8 @@ echo -e "nameserver 1.1.1.1\nnameserver 1.0.0.1" | sudo tee /etc/resolv.conf
 
 # function
 Xem () { curl -s -G -L -N -H "$User" "$1"; }
-Taive () { curl -L -N -H "$User" -O "$1"; }
-Taive2 () { curl -L -N -H "$User" "$1" -o "$2"; }
+Taive () { curl -s -L -N -H "$User" -O "$1"; }
+Taive2 () { curl -s -L -N -H "$User" "$1" -o "$2"; }
 
 # tao tm
 mkdir -p Up
