@@ -33,6 +33,7 @@ url1="$(ls)"
 echo "- Name: $url1"
 
 # upload
+curl -T "$url1" -u :829e6679-9f44-4e4e-8bdd-ffc3b19ac979 https://pixeldrain.com/api/file/ | jq -r .id | awk '{print "https://pixeldrain.com/u/"$1}'
 
 if [ "$GITHUB_REPOSITORY" == "Zenlua/GLink" ] && [ "$NUT" == 'false' ];then
 #res_json=$(curl -s -X GET "https://devuploads.com/api/upload/server?key=47395exzbd07av0fozl8h")
@@ -44,18 +45,6 @@ url2="$(curl -s https://api.gofile.io/servers | jq -r .data.servers[0].name)"
 eval "curl -L -N -H '$User' -F 'file=@$url1' 'https://'$url2'.gofile.io/contents/uploadfile'" | jq
 echo "$url2" | tee $TOME/tc.log
 fi
-
-echo
-echo
-curl -T "$url1" -u :829e6679-9f44-4e4e-8bdd-ffc3b19ac979 https://pixeldrain.com/api/file/ | jq -r .id | awk '{print "https://pixeldrain.com/u/"$1}'
-
-while true; do
-if [ -e $TOME/tc.log ];then
-break
-else
-sleep 1
-fi
-done
 
 #LinkDow="$(eval "curl -X POST -F 'email=kakathic@gmail.com' -F 'key=xcjdJTOsvZJhgVV10B' -F 'file=@$url1' -F 'folder=821972' https://ul.mixdrop.ag/api" | jq -r .result.url)"
 
