@@ -28,12 +28,16 @@ Taive2 "${1}?use_mirror=zenlayer&r=" "file_rom.zip" 2>&1
 
 Taiveeu "$URL"
 unzip -qoj file_rom.zip images/super.img.* -d imgs
+
+if [ -n "$(ls $TOME/imgs/super.img.*)" ];then
 listsup="$(ls $TOME/imgs/super.img.* | sort -n -t . -k 3)"
 rm -fr file_rom.zip
 simg2img $listsup "super.img"
 rm -fr $TOME/imgs/*
 lpunpack "$TOME/super.img" "$TOME/imgs" &>/dev/null
 rm -fr $TOME/super.img
+fi
+
 mkdir -p $TOME/vip $TOME/file
 echo
 ls -lh "$TOME/imgs"
