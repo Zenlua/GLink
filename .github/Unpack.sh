@@ -49,6 +49,7 @@ echo
 ls -lh "$TOME/imgs"
 
 for vv in $TOME/imgs/*.img; do
+[ -S $vv ] && continue
 dangtype="$(gettype -i $vv)"
 echo "${vv##*/}: $dangtype"
 if [ "$dangtype" == 'erofs' ];then
