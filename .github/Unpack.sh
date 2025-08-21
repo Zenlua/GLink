@@ -41,8 +41,8 @@ fi
 mkdir -p $TOME/vip $TOME/file
 
 for vr in $TOME/imgs/*.br; do
-brotli -f -d "$vr" -o "$TOME/imgs/${vr%%.*}_tmpkk"
-$TOME/bin/sdat2img.py "$TOME/imgs/${vr%%.*}.transfer.list" "$TOME/imgs/${vr%%.*}_tmpkk" "$TOME/imgs/${vr%%.*}.img"
+brotli -f -d "$vr" -o "${vr%%.*}_tmpkk"
+$TOME/bin/sdat2img.py "${vr%%.*}.transfer.list" "${vr%%.*}_tmpkk" "${vr%%.*}.img"
 done
 
 echo
