@@ -27,7 +27,7 @@ Taive2 "${1}?use_mirror=zenlayer&r=" "file_rom.zip" 2>&1
 }
 
 Taiveeu "$URL"
-unzip -qoj file_rom.zip images/super.img.* -d imgs
+unzip -qoj file_rom.zip images/super.img.* *.br *.list -d imgs
 
 if [ -n "$(ls $TOME/imgs/super.img.*)" ];then
 listsup="$(ls $TOME/imgs/super.img.* | sort -n -t . -k 3)"
