@@ -42,7 +42,7 @@ mkdir -p $TOME/vip $TOME/file
 echo
 ls -lh "$TOME/imgs"
 
-for vv in $TOME/imgs/*_a.img; do
+for vv in $TOME/imgs/*.img; do
 dangtype="$(gettype -i $vv)"
 echo "${vv##*/}: $dangtype"
 if [ "$dangtype" == 'erofs' ];then
@@ -51,7 +51,6 @@ elif [ "$dangtype" == 'ext' ];then
 sudo python3 $TOME/bin/imgextractor.py "$vv" "$TOME/vip" &>/dev/null
 else
 echo "Lỗi file không biết: $dangtype"
-exit 1
 fi
 rm -f $vv
 done
