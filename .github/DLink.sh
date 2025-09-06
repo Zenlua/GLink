@@ -18,8 +18,8 @@ echo "- Url: $URL"
 
 # phát hiện sv download & tải về 
 if [ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ];then
-sudo apt-get install megatools >/dev/null 2>/dev/null
-megadl "$URL" 2>&1 > "$TOME/bug.txt"
+sudo apt-get install megatools megacmd -y &>/dev/null
+mega-get "$URL" &> "$TOME/bug.txt" || megadl "$URL" &> "$TOME/bug.txt"
 elif [ "$(echo "$URL" | grep -cm1 'sourceforge.net')" == 1 ];then
 mausourcef="$(echo "$URL" | cut -d '/' -f 5,7)"
 tensourcef="$(echo "$URL" | cut -d '/' -f 10)"
