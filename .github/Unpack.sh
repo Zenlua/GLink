@@ -29,6 +29,12 @@ Taive2 "${1}?use_mirror=zenlayer&r=" "file_rom.zip" 2>&1
 Taiveeu "$URL"
 unzip -qoj file_rom.zip payload.bin images/super.img.* *.br *.list -d imgs
 
+if [ -f $TOME/imgs/payload.bin ];then
+bash <(curl -sSL "https://raw.githubusercontent.com/rhythmcache/payload-dumper-rust/main/scripts/install.sh")
+payload_dumper --images system_ext,system,product $TOME/imgs/payload.bin --out $TOME/imgs
+rm -fr $TOME/imgs/payload.bin
+fi
+
 if [ -n "$(ls $TOME/imgs/super.img.*)" ];then
 listsup="$(ls $TOME/imgs/super.img.* | sort -n -t . -k 3)"
 rm -fr file_rom.zip
