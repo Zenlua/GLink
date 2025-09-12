@@ -31,7 +31,7 @@ Taiveeu "$URL"
 unzip -oj file_rom.zip payload.bin images/super.img.* *.br *.list -d imgs
 
 if [ -f $TOME/imgs/payload.bin ];then
-payload-dumper-go -o $TOME/imgs -p system_ext,system,product $TOME/imgs/payload.bin
+payload-dumper-go -o $TOME/imgs -p system_ext,system,product $TOME/imgs/payload.bin &>/dev/null
 rm -fr $TOME/imgs/payload.bin
 fi
 
