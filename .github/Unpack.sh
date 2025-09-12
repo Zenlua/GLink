@@ -8,6 +8,7 @@ User="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 
 Taive2 () { curl -s -L -N "$1" -o "$2"; }
 unzip -qoj .github/bin.zip bin/* -d bin
+mv .github/payload-dumper-go bin
 #Taive2 "https://github.com/sekaiacg/erofs-utils/releases/download/v1.8.10-250719/erofs-utils-v1.8.10-g0e284fcb-Linux_x86_64-2507191652.zip" "mod2.zip" 
 #Taive2 "https://github.com/sekaiacg/lptools/releases/download/lptools-250703/lptools-Linux_x86_64-2507032337.zip" mod3.zip
 #unzip -qoj mod2.zip -d bin
@@ -27,11 +28,10 @@ Taive2 "${1}?use_mirror=zenlayer&r=" "file_rom.zip" 2>&1
 }
 
 Taiveeu "$URL"
-unzip -qoj file_rom.zip payload.bin images/super.img.* *.br *.list -d imgs
+unzip -oj file_rom.zip payload.bin images/super.img.* *.br *.list -d imgs
 
 if [ -f $TOME/imgs/payload.bin ];then
-bash <(curl -sSL "https://raw.githubusercontent.com/rhythmcache/payload-dumper-rust/main/scripts/install.sh")
-payload_dumper --images system_ext,system,product $TOME/imgs/payload.bin --out $TOME/imgs
+payload-dumper-go -o $TOME/imgs -p system_ext,system,product $TOME/imgs/payload.bin
 rm -fr $TOME/imgs/payload.bin
 fi
 
