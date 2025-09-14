@@ -28,7 +28,18 @@ tensourcef="$(echo "$1" | cut -d '/' -f 10)"
 Taive2 "${1}?use_mirror=zenlayer&r=" "file_rom.zip" 2>&1
 }
 
+echo "Đang tải xuống..."
+(
+sleep 10
+echo "Kích thước sau 10s tải"
+ls -lh "file_rom.zip"
+) &
+if [ "$(echo "$URL" | grep -cm1 'sourceforge.net')" == 1 ];then
 Taiveeu "$URL"
+else
+Taive2 "$URL" "file_rom.zip"
+fi
+
 unzip -oj file_rom.zip payload.bin images/super.img.* *.br *.list -d imgs
 
 if [ -f $TOME/imgs/payload.bin ];then
