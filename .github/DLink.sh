@@ -15,7 +15,11 @@ mkdir -p Up
 cd Up
 
 echo "- Url: $URL"
-
+(
+sleep 10
+echo "Kích thước sau 10s tải"
+ls -lh
+) &
 # phát hiện sv download & tải về 
 if [ "$(echo "$URL" | grep -cm1 'mega.nz')" == 1 ];then
 sudo apt-get install megatools -y &>/dev/null
