@@ -69,8 +69,9 @@ rm -f $vv
 done
 
 for bb in $FFile; do
+echo "File $bb"
 pathzip="$(sudo find $TOME/vip -type f -name "$bb")"
-cp -rf "$pathzip" file
+cp -rf "$pathzip" file || echo "Error: $bb"
 done
 
 cd file
