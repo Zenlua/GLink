@@ -77,12 +77,12 @@ sudo python3 $TOME/bin/imgextractor.py "$vv" "$TOME/vip" &>/dev/null
 else
 echo "Lỗi file không biết: $dangtype"
 fi
-rm -f $vv
+#rm -f $vv
 done
 
 for bb in $FFile; do
 echo "File $bb"
-pathzip="$(sudo find $TOME/vip -type f -name "$bb")"
+pathzip="$(sudo find $TOME/vip $TOME/imgs -type f -name "$bb")"
 cp -rf "$pathzip" file || echo "Error: $bb"
 done
 
