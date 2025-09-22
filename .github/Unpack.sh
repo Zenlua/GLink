@@ -82,9 +82,11 @@ done
 
 for bb in $FFile; do
 echo "File $bb"
-pathzip="$(sudo find $TOME/vip $TOME/imgs -type f -name "$bb")"
+pathzip="$(sudo find $TOME/vip -type f -name "$bb")"
 cp -rf "$pathzip" file || echo "Error: $bb"
 done
+
+mv $TOME/imgs/system.img file/system.img
 
 cd file
 zip -jr $TOME/file.zip *
