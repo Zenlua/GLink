@@ -84,7 +84,7 @@ for bb in $FFile; do
 echo "File $bb"
 pathzip="$(sudo find $TOME/vip -type f -name "$bb")"
 cp -rf "$pathzip" file || echo "Error: $bb"
-[ -f $TOME/imgs/$bb ] && cp -rf $TOME/imgs/$bb file
+[ -f $TOME/imgs/$bb ] && mv $TOME/imgs/$bb file/$bb
 done
 
 cd file
