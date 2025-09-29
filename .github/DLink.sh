@@ -48,8 +48,8 @@ if [ "$NUT" == 'true' ];then
 #curl -s -X POST -F "sess_id=$sess_id" -F "utype=reg" -F "file=@$url1" "$server_url" | tee s.json
 #echo "https://devuploads.com/$(cat s.json | jq -r .[].file_code)"
 url2="$(curl -s -H "$User" https://api.gofile.io/servers | jq -r .data.servers[0].name)"
-[ -z "$url2" ] && url2='upload-ap-sgp.gofile.io'
-eval "curl -sL -N -H '$User' -F 'file=@$url1' 'https://$url2/uploadfile'" | jq
+[ -z "$url2" ] && url2='upload-ap-sgp.gofile.io' || url2="$url2.gofile.io"
+eval "curl -sL -N -H '$User' -F 'file=@$url1' 'https://$url2/contents/uploadfile'" | jq
 #echo "$url2" | tee $TOME/tc.log
 fi
 
