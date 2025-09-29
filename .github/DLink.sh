@@ -37,11 +37,11 @@ url1="$(ls)"
 echo "- Name: $url1"
 
 # upload
-if [ "$GITHUB_REPOSITORY" == "Zenlua/GLink" ] && [ "$NUT2" == 'true' ];then
+if [ "$NUT2" == 'true' ];then
 curl -sT "$url1" -u :829e6679-9f44-4e4e-8bdd-ffc3b19ac979 https://pixeldrain.com/api/file/ | jq -r .id | awk '{print "https://pixeldrain.com/u/"$1}'
 fi
 
-if [ "$GITHUB_REPOSITORY" == "Zenlua/GLink" ] && [ "$NUT" == 'false' ];then
+if [ "$NUT" == 'true' ];then
 #res_json=$(curl -s -X GET "https://devuploads.com/api/upload/server?key=47395exzbd07av0fozl8h")
 #sess_id=$(echo "$res_json" | grep -o '"sess_id":"[^"]*"' | awk -F ':' '{print $2}' | tr -d '"')
 #server_url=$(echo $res_json | sed -n 's/.*"result":"\([^"]*\).*/\1/p')
