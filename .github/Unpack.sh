@@ -33,6 +33,9 @@ echo "Đang tải xuống..."
 sleep 10
 echo "Kích thước sau 10s tải"
 ls -lh "file_rom.zip"
+sleep 10
+echo "Kích thước sau 20s tải"
+ls -lh "file_rom.zip"
 ) &
 if [ "$(echo "$URL" | grep -cm1 'sourceforge.net')" == 1 ];then
 Taiveeu "$URL"
