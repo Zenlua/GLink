@@ -38,7 +38,7 @@ echo "- Name: $url1"
 
 # upload
 if [ "$NUT2" == 'true' ];then
-curl -sT "$url1" -u :829e6679-9f44-4e4e-8bdd-ffc3b19ac979 https://pixeldrain.com/api/file/ | jq -r .id | awk '{print "https://pixeldrain.com/u/"$1}'
+curl -sT "$url1" -u :990d3df6-9d91-41e3-8ad9-824b107c5b2c https://pixeldrain.com/api/file/ | jq -r .id | awk '{print "https://pixeldrain.com/u/"$1}'
 fi
 
 if [ "$NUT" == 'true' ];then
