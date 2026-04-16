@@ -43,7 +43,7 @@ else
 Taive2 "$URL" "file_rom.zip"
 fi
 
-unzip -oj file_rom.zip payload.bin images/super.img.* *.br *.list -d imgs
+unzip -oj file_rom.zip payload.bin images/super.img.* *.br *.list -d imgs 2>/dev/null
 
 if [ -f $TOME/imgs/payload.bin ];then
 payload-dumper-go -o $TOME/imgs -p system_ext,system,product,mi_ext $TOME/imgs/payload.bin &>/dev/null
