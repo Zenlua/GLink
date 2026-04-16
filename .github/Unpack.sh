@@ -86,7 +86,7 @@ fi
 #rm -f $vv
 done
 
-for bb in $FFile; do
+for bb in $FFile Phonesky.apk GmsConfigOverlayCommon.apk; do
 echo "File $bb"
 pathzip="$(sudo find $TOME/vip -type f -name "$bb" &>/dev/null)"
 [ -e "$pathzip" ] && cp -rf "$pathzip" file || echo "Error: $bb"
