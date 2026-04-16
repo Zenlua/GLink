@@ -62,8 +62,10 @@ fi
 mkdir -p $TOME/vip $TOME/file
 
 for vr in $TOME/imgs/*.br; do
+if [ -f "$vr" ]; then
 brotli -f -d "$vr" -o "${vr%%.*}_tmpkk" &>/dev/null
 $TOME/bin/sdat2img.py "${vr%%.*}.transfer.list" "${vr%%.*}_tmpkk" "${vr%%.*}.img" &>/dev/null
+fi
 done
 
 echo
@@ -71,6 +73,7 @@ ls -lh "$TOME/imgs"
 
 for vv in $TOME/imgs/*.img; do
 [ -s $vv ] || continue
+[ -f $vv ] || continue
 dangtype="$(gettype -i $vv)"
 echo "${vv##*/}: $dangtype"
 if [ "$dangtype" == 'erofs' ];then
